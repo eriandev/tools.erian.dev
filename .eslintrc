@@ -1,0 +1,23 @@
+{
+  "root": true,
+  "env": {
+    "node": true,
+    "es2022": true,
+    "browser": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": "latest"
+  },
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "extends": ["standard"]
+    },
+    {
+      "files": ["*.svelte"],
+      "parser": "svelte-eslint-parser",
+      "extends": ["plugin:svelte/recommended"]
+    }
+  ]
+}
