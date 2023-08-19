@@ -5,11 +5,11 @@
   export let place
   /** @type {string} */
   export let position
-  /** @type {string} */
+  /** @type {number} */
   export let timestamp
-  /** @type {string} */
+  /** @type {number=} */
   export let salary
-  /** @type {string} */
+  /** @type {string=} */
   export let jobPostUrl
   /** @type {boolean=} */
   export let remote = false
