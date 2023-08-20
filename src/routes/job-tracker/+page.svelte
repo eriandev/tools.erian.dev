@@ -7,6 +7,7 @@
 
   import Card from './components/Card.svelte'
   import Column from './components/Column.svelte'
+  import NewCard from './components/NewCard.svelte'
 
   /**
    * @param {CustomEvent} event
@@ -49,3 +50,5 @@
     </Column>
   {/each}
 </main>
+
+<NewCard />

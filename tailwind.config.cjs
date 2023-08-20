@@ -20,6 +20,10 @@ module.exports = {
           primary: '#63CBCF',
           secondary: '#ECF6F6',
 
+          sky: {
+            blue: '#EFF2F9'
+          },
+
           black: '#2B2B2B',
 
           gray: {

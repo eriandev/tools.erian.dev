@@ -1,34 +1,49 @@
-<script>
-  import Link from '../icons/Link.svelte'
-  import Paid from '../icons/Paid.svelte'
-  import Remote from '../icons/Remote.svelte'
-  import Applied from '../icons/Applied.svelte'
-  import Wishlist from '../icons/Wishlist.svelte'
-  import Interview from '../icons/Interview.svelte'
+<script context="module">
+  /**
+   * @typedef IconNames
+   * @type {'applied'|'briefcase'|'interview'|'link'|'location'|'paid'|'remote'|'wishlist'|'x'}
+   */
+</script>
 
-  /** @type {'applied'|'wishlist'|'interview'|'link'|'paid'|'remote'} */
+<script>
+  import x from '../icons/X.svelte'
+  import link from '../icons/Link.svelte'
+  import paid from '../icons/Paid.svelte'
+  import remote from '../icons/Remote.svelte'
+  import applied from '../icons/Applied.svelte'
+  import wishlist from '../icons/Wishlist.svelte'
+  import location from '../icons/Location.svelte'
+  import interview from '../icons/Interview.svelte'
+  import briefcase from '../icons/Briefcase.svelte'
+
+  /** @type {IconNames} */
   export let name
   /** @type {number} */
   export let size = 20
 
   const icons = {
-    link: Link,
-    paid: Paid,
-    remote: Remote,
-    applied: Applied,
-    wishlist: Wishlist,
-    interview: Interview,
+    x,
+    link,
+    paid,
+    remote,
+    applied,
+    wishlist,
+    location,
+    briefcase,
+    interview,
   }
 </script>
 
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 20 20"
+  viewBox="0 0 {size} {size}"
   {name}
   width={size}
   height={size}
   fill="none"
   {...$$restProps}
+  on:click
 >
   <svelte:component this={icons[name]} />
 </svg>
