@@ -1,12 +1,12 @@
 <script>
   import Icon from './Icon.svelte'
 
-  /** @type {'text'|'number'=} */
-  export let type = 'text'
   /** @type {string=} */
   export let label = ''
   /** @type {import('./Icon.svelte').IconNames=} */
   export let icon = undefined
+  /** @type {string} */
+  export let value
 
   const id = crypto.randomUUID()
 </script>
@@ -18,5 +18,5 @@
     {/if}
     <span>{label}</span>
   </label>
-  <input {id} {type} class="bg-jt-sky-blue px-4 py-2" />
+  <input bind:value {id} class="bg-jt-sky-blue px-4 py-2" />
 </div>

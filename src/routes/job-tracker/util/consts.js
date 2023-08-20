@@ -1,6 +1,6 @@
 export const flipDurationMs = 200
 /** @type {Array<'wishlist'|'interview'|'applied'>} */
-export const COLUMN_HEADLINES = ['wishlist', 'interview', 'applied']
+export const COLUMN_HEADLINES = ['wishlist', 'applied', 'interview']
 /** @type {BoardInfo[]} */
 export const DEFAULT_BOARD_INFO = [
   {
@@ -9,10 +9,10 @@ export const DEFAULT_BOARD_INFO = [
       {
         id: '7f5affb1-6e41-4a7d-bd26-613abc4cfc8e',
         remote: true,
-        place: 'Miskatonic University',
-        position: 'Professor, Anthropology and Occultism Department',
+        salary: '5000',
         timestamp: 1691721018580,
-        salary: 5000,
+        location: 'Miskatonic University',
+        jobTitle: 'Professor, Anthropology and Occultism Department',
         jobPostUrl: 'https://google.com',
         meetUrl: 'https://meet.new'
       }
@@ -27,6 +27,11 @@ export const DEFAULT_BOARD_INFO = [
     items: []
   }
 ]
+/** @type {ModalInfo} */
+export const DEFAULT_MODAL_INFO = {
+  isOpen: false,
+  title: 'wishlist'
+}
 
 /**
  * @typedef ColumnHeadlines
@@ -47,10 +52,18 @@ export const DEFAULT_BOARD_INFO = [
  *
  * @prop {string} id
  * @prop {boolean=} remote
- * @prop {string} place
- * @prop {string} position
+ * @prop {string} location
+ * @prop {string} jobTitle
  * @prop {number} timestamp
- * @prop {number=} salary
+ * @prop {string=} salary
  * @prop {string=} jobPostUrl
  * @prop {string=} meetUrl
+*/
+
+/**
+ * @typedef ModalInfo
+ * @type {object}
+ *
+ * @prop {boolean} isOpen
+ * @prop {ColumnHeadlines} title
 */

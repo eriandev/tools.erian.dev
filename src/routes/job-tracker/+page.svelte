@@ -2,8 +2,8 @@
   import { get } from 'svelte/store'
   import { dndzone } from 'svelte-dnd-action'
 
-  import { boardInfo } from './util/store'
   import { flipDurationMs } from './util/consts'
+  import { closeModal, boardInfo } from './util/store'
 
   import Card from './components/Card.svelte'
   import Column from './components/Column.svelte'
@@ -30,7 +30,16 @@
     newBoardInfo[colId].items = detail.items
     boardInfo.set(newBoardInfo)
   }
+
+  /**
+   * @param {KeyboardEvent} event
+   */
+  function keyDownHandler(event) {
+    if (event.key === 'Escape') closeModal()
+  }
 </script>
+
+<svelte:window on:keydown={keyDownHandler} />
 
 <h1 class="px-5 pb-5 pt-10 text-[2rem]">Job Tracking</h1>
 
@@ -43,8 +52,8 @@
         on:consider={(/** @type {CustomEvent} */ event) => handleDndConsiderCards(event, column.id)}
         on:finalize={(/** @type {CustomEvent} */ event) => handleDndFinalizeCards(event, column.id)}
       >
-        {#each column.items as { id, remote, place, position, timestamp, jobPostUrl, meetUrl, salary } (id)}
-          <Card {remote} {place} {position} {timestamp} {salary} {jobPostUrl} {meetUrl} />
+        {#each column.items as { id, remote, location, jobTitle, timestamp, jobPostUrl, meetUrl, salary } (id)}
+          <Card {remote} {location} {jobTitle} {timestamp} {salary} {jobPostUrl} {meetUrl} />
         {/each}
       </div>
     </Column>

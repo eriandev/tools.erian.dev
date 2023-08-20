@@ -2,12 +2,12 @@
   import Icon from './Icon.svelte'
 
   /** @type {string} */
-  export let place
+  export let location
   /** @type {string} */
-  export let position
+  export let jobTitle
   /** @type {number} */
   export let timestamp
-  /** @type {number=} */
+  /** @type {string=} */
   export let salary
   /** @type {string=} */
   export let jobPostUrl
@@ -20,8 +20,8 @@
 <article
   class="flex cursor-pointer flex-col gap-y-1 rounded-lg bg-white p-4 shadow-sm transition-shadow duration-200 ease-in-out hover:shadow-md"
 >
-  <h3 class="line-clamp-1 text-xl capitalize leading-none">{place}</h3>
-  <p class="mb-2 line-clamp-2 overflow-hidden text-lg leading-none text-jt-gray-400">{position}</p>
+  <h3 class="line-clamp-1 text-xl capitalize leading-none">{location}</h3>
+  <p class="mb-2 line-clamp-2 overflow-hidden text-lg leading-none text-jt-gray-400">{jobTitle}</p>
 
   <div class="grid auto-cols-max grid-flow-col gap-x-2 text-jt-gray-300">
     {#if timestamp}
