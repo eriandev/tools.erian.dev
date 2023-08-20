@@ -1,3 +1,5 @@
+export const BOARD_INFO_KEY = 'jt_brd'
+
 export const flipDurationMs = 200
 /** @type {Array<'wishlist'|'interview'|'applied'>} */
 export const COLUMN_HEADLINES = ['wishlist', 'applied', 'interview']

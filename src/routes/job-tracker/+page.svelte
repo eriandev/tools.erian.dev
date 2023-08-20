@@ -1,13 +1,16 @@
 <script>
+  import { onMount } from 'svelte'
   import { get } from 'svelte/store'
   import { dndzone } from 'svelte-dnd-action'
 
   import { flipDurationMs } from './util/consts'
-  import { closeModal, boardInfo } from './util/store'
+  import { closeModal, boardInfo, initBoardInfo } from './util/store'
 
   import Card from './components/Card.svelte'
   import Column from './components/Column.svelte'
   import NewCard from './components/NewCard.svelte'
+
+  onMount(() => initBoardInfo())
 
   /**
    * @param {CustomEvent} event
