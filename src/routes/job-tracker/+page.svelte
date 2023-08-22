@@ -1,11 +1,10 @@
 <script>
   import { onMount } from 'svelte'
-  import { get } from 'svelte/store'
   import { flip } from 'svelte/animate'
   import { dndzone } from 'svelte-dnd-action'
 
   import { flipDurationMs } from './util/consts'
-  import { closeModal, boardInfo, initBoardInfo } from './util/store'
+  import { closeModal, boardInfo, initBoardInfo, updateColumnCards } from './util/store'
 
   import Card from './components/Card.svelte'
   import Column from './components/Column.svelte'
@@ -15,24 +14,18 @@
 
   /**
    * @param {CustomEvent} event
-   * @param {import('./util/consts').ColumnHeadlines} title
+   * @param {import('./util/consts').ColumnHeadlines} headline
    */
-  function handleDndConsiderCards({ detail }, title) {
-    const newBoardInfo = get(boardInfo)
-    const colId = newBoardInfo.findIndex(({ headline }) => headline === title)
-    newBoardInfo[colId].items = detail.items
-    boardInfo.set(newBoardInfo)
+  function handleDndConsiderCards({ detail }, headline) {
+    updateColumnCards(headline, detail.items)
   }
 
   /**
    * @param {CustomEvent} event
-   * @param {import('./util/consts').ColumnHeadlines} title
+   * @param {import('./util/consts').ColumnHeadlines} headline
    */
-  function handleDndFinalizeCards({ detail }, title) {
-    const newBoardInfo = get(boardInfo)
-    const colId = newBoardInfo.findIndex(({ headline }) => headline === title)
-    newBoardInfo[colId].items = detail.items
-    boardInfo.set(newBoardInfo)
+  function handleDndFinalizeCards({ detail }, headline) {
+    updateColumnCards(headline, detail.items)
   }
 
   /**

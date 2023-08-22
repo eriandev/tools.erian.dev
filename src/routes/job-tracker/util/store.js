@@ -10,6 +10,17 @@ export function addNewJobTo (title, newJobInfo) {
   boardInfo.update(info => info.map(({ headline, items }) => headline === title ? { headline, items: [newJobInfo, ...items] } : { headline, items }))
   persistBoardInfo()
 }
+/**
+ * @param {import('./consts.js').ColumnHeadlines} columnName
+ * @param {import('./consts.js').ColumnInfo[]} updatedCards
+*/
+export function updateColumnCards (columnName, updatedCards) {
+  const newBoardInfo = get(boardInfo)
+  const colId = newBoardInfo.findIndex(({ headline }) => headline === columnName)
+  newBoardInfo[colId].items = updatedCards
+  boardInfo.set(newBoardInfo)
+  persistBoardInfo()
+}
 
 export function persistBoardInfo () {
   const info = get(boardInfo)
