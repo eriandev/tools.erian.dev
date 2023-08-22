@@ -1,6 +1,8 @@
 <script>
   import Icon from './Icon.svelte'
 
+  /** @type {string=} */
+  export let id
   /** @type {string} */
   export let location
   /** @type {string} */
@@ -18,7 +20,8 @@
 </script>
 
 <article
-  class="flex cursor-pointer flex-col gap-y-1 rounded-lg bg-white p-4 shadow-sm transition-shadow duration-200 ease-in-out hover:shadow-md"
+  {id}
+  class="flex cursor-pointer flex-col gap-y-1 rounded-lg bg-white p-4 shadow-sm outline-none transition-shadow duration-200 ease-in-out hover:shadow-md"
 >
   <h3 class="line-clamp-1 text-xl capitalize leading-none">{location}</h3>
   <p class="mb-2 line-clamp-2 overflow-hidden text-lg leading-none text-jt-gray-400">{jobTitle}</p>
@@ -30,14 +33,14 @@
 
     <div class="grid auto-cols-min grid-flow-col items-center gap-x-2">
       {#if remote}
-        <Icon name="remote" size={22} />
+        <Icon name="remote" size={18} stroke="currentColor" />
       {/if}
       {#if salary}
-        <Icon name="paid" size={22} />
+        <Icon name="paid" />
       {/if}
       {#if jobPostUrl}
         <a target="_blank" rel="noopener noreferrer" href={jobPostUrl}>
-          <Icon name="link" size={22} />
+          <Icon name="link" />
         </a>
       {/if}
     </div>

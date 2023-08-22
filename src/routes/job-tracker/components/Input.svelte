@@ -14,7 +14,7 @@
 <div class="flex flex-col gap-y-[6px] text-jt-gray-400">
   <label for={id} class="flex items-center gap-x-[6px]">
     {#if icon}
-      <Icon name={icon} size={14} />
+      <Icon name={icon} />
     {/if}
     <span>{label}</span>
   </label>

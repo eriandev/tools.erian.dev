@@ -6,7 +6,7 @@ export const COLUMN_HEADLINES = ['wishlist', 'applied', 'interview']
 /** @type {BoardInfo[]} */
 export const DEFAULT_BOARD_INFO = [
   {
-    id: 'wishlist',
+    headline: 'wishlist',
     items: [
       {
         id: '7f5affb1-6e41-4a7d-bd26-613abc4cfc8e',
@@ -21,11 +21,11 @@ export const DEFAULT_BOARD_INFO = [
     ]
   },
   {
-    id: 'interview',
+    headline: 'applied',
     items: []
   },
   {
-    id: 'applied',
+    headline: 'interview',
     items: []
   }
 ]
@@ -44,7 +44,7 @@ export const DEFAULT_MODAL_INFO = {
  * @typedef BoardInfo
  * @type {object}
  *
- * @prop {ColumnHeadlines} id
+ * @prop {ColumnHeadlines} headline
  * @prop {Array<ColumnInfo>} items
 */
 

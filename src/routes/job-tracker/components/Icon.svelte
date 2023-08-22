@@ -19,7 +19,7 @@
   /** @type {IconNames} */
   export let name
   /** @type {number} */
-  export let size = 20
+  export let size = 16
 
   const icons = {
     x,
@@ -37,11 +37,11 @@
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 {size} {size}"
+  viewBox="0 0 24 24"
   {name}
+  fill="none"
   width={size}
   height={size}
-  fill="none"
   {...$$restProps}
   on:click
 >

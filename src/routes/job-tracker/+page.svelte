@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte'
   import { get } from 'svelte/store'
+  import { flip } from 'svelte/animate'
   import { dndzone } from 'svelte-dnd-action'
 
   import { flipDurationMs } from './util/consts'
@@ -14,22 +15,22 @@
 
   /**
    * @param {CustomEvent} event
-   * @param {import('./util/consts').ColumnHeadlines} columnName
+   * @param {import('./util/consts').ColumnHeadlines} title
    */
-  function handleDndConsiderCards({ detail }, columnName) {
+  function handleDndConsiderCards({ detail }, title) {
     const newBoardInfo = get(boardInfo)
-    const colId = newBoardInfo.findIndex(({ id }) => id === columnName)
+    const colId = newBoardInfo.findIndex(({ headline }) => headline === title)
     newBoardInfo[colId].items = detail.items
     boardInfo.set(newBoardInfo)
   }
 
   /**
    * @param {CustomEvent} event
-   * @param {import('./util/consts').ColumnHeadlines} columnName
+   * @param {import('./util/consts').ColumnHeadlines} title
    */
-  function handleDndFinalizeCards({ detail }, columnName) {
+  function handleDndFinalizeCards({ detail }, title) {
     const newBoardInfo = get(boardInfo)
-    const colId = newBoardInfo.findIndex(({ id }) => id === columnName)
+    const colId = newBoardInfo.findIndex(({ headline }) => headline === title)
     newBoardInfo[colId].items = detail.items
     boardInfo.set(newBoardInfo)
   }
@@ -44,19 +45,21 @@
 
 <svelte:window on:keydown={keyDownHandler} />
 
-<h1 class="px-5 pb-5 pt-10 text-[2rem]">Job Tracking</h1>
+<h1 class="px-5 pb-5 pt-10 text-[2rem] md:px-8">Job Tracking</h1>
 
 <main class="flex gap-x-8 overflow-x-auto px-5 md:px-8">
-  {#each $boardInfo as column (column.id)}
-    <Column title={column.id}>
+  {#each $boardInfo as { headline, items } (headline)}
+    <Column title={headline}>
       <div
         class="flex min-h-[400px] flex-col gap-y-2"
-        use:dndzone={{ items: column.items, flipDurationMs }}
-        on:consider={(/** @type {CustomEvent} */ event) => handleDndConsiderCards(event, column.id)}
-        on:finalize={(/** @type {CustomEvent} */ event) => handleDndFinalizeCards(event, column.id)}
+        use:dndzone={{ items, flipDurationMs, dropTargetStyle: { outline: 'none' } }}
+        on:consider={(/** @type {CustomEvent} */ event) => handleDndConsiderCards(event, headline)}
+        on:finalize={(/** @type {CustomEvent} */ event) => handleDndFinalizeCards(event, headline)}
       >
-        {#each column.items as { id, remote, location, jobTitle, timestamp, jobPostUrl, meetUrl, salary } (id)}
-          <Card {remote} {location} {jobTitle} {timestamp} {salary} {jobPostUrl} {meetUrl} />
+        {#each items as { id, remote, location, jobTitle, timestamp, salary, jobPostUrl, meetUrl } (id)}
+          <div animate:flip={{ duration: flipDurationMs }}>
+            <Card {id} {remote} {location} {jobTitle} {timestamp} {salary} {jobPostUrl} {meetUrl} />
+          </div>
         {/each}
       </div>
     </Column>

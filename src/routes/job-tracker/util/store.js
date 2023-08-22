@@ -3,11 +3,11 @@ import { BOARD_INFO_KEY, DEFAULT_BOARD_INFO, DEFAULT_MODAL_INFO } from './consts
 
 export const boardInfo = writable(DEFAULT_BOARD_INFO)
 /**
- * @param {import('./consts.js').ColumnHeadlines} headline
+ * @param {import('./consts.js').ColumnHeadlines} title
  * @param {import('./consts.js').ColumnInfo} newJobInfo
 */
-export function addNewJobTo (headline, newJobInfo) {
-  boardInfo.update(info => info.map(({ id, items }) => id === headline ? { id, items: [newJobInfo, ...items] } : { id, items }))
+export function addNewJobTo (title, newJobInfo) {
+  boardInfo.update(info => info.map(({ headline, items }) => headline === title ? { headline, items: [newJobInfo, ...items] } : { headline, items }))
   persistBoardInfo()
 }
 
