@@ -1,5 +1,5 @@
 <script>
-  import { get } from 'svelte/store'
+  import { onDestroy, onMount } from 'svelte'
 
   import { addNewJobTo, closeModal, modalInfo } from '../util/store'
 
@@ -11,13 +11,24 @@
   let jobTitle = ''
   let location = ''
   let jobPostUrl = ''
-  let saveDisabled = true
+  /** @type {import('svelte/store').Unsubscriber} */
+  let modalInfoUnsubscriber = () => {}
 
-  function saveCard() {
-    if (saveDisabled) return
+  onMount(
+    () =>
+      (modalInfoUnsubscriber = modalInfo.subscribe((info) => {
+        if (!info.isOpen) resetInputs()
+      }))
+  )
+  onDestroy(() => modalInfoUnsubscriber())
+
+  /**
+   * @param {import('../util/consts.js').ColumnHeadlines} title
+   */
+  function saveCard(title) {
+    if (!Boolean(jobTitle && location)) return
 
     const id = crypto.randomUUID()
-    const title = get(modalInfo).title
     const timestamp = new Date().getTime()
 
     addNewJobTo(title, {
@@ -32,7 +43,12 @@
     closeModal()
   }
 
-  $: saveDisabled = !Boolean(jobTitle && location)
+  function resetInputs() {
+    salary = ''
+    jobTitle = ''
+    location = ''
+    jobPostUrl = ''
+  }
 </script>
 
 <Modal>
@@ -47,6 +63,6 @@
 
   <div class="flex justify-end gap-x-4">
     <Button on:click={closeModal}>Cancel</Button>
-    <Button primary on:click={saveCard} disabled={saveDisabled}>Save</Button>
+    <Button primary on:click={() => saveCard($modalInfo.title)} disabled={!Boolean(jobTitle && location)}>Save</Button>
   </div>
 </Modal>
