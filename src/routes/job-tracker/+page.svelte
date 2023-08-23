@@ -14,7 +14,7 @@
 
   /**
    * @param {CustomEvent} event
-   * @param {import('./util/consts').ColumnHeadlines} headline
+   * @param {import('./util/consts').JobStep} headline
    */
   function handleDndConsiderCards({ detail }, headline) {
     updateColumnCards(headline, detail.items)
@@ -22,7 +22,7 @@
 
   /**
    * @param {CustomEvent} event
-   * @param {import('./util/consts').ColumnHeadlines} headline
+   * @param {import('./util/consts').JobStep} headline
    */
   function handleDndFinalizeCards({ detail }, headline) {
     updateColumnCards(headline, detail.items)

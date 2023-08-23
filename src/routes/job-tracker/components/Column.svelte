@@ -3,7 +3,7 @@
 
   import Icon from './Icon.svelte'
 
-  /** @type {import('../util/consts').ColumnHeadlines} */
+  /** @type {import('../util/consts').JobStep} */
   export let title
   /** @type {number} */
   export let count = 0

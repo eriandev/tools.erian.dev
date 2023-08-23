@@ -2,7 +2,7 @@ export const BOARD_INFO_KEY = 'jt_brd'
 
 export const flipDurationMs = 200
 /** @type {Array<'wishlist'|'interview'|'applied'>} */
-export const COLUMN_HEADLINES = ['wishlist', 'applied', 'interview']
+export const JOB_STEPS = ['wishlist', 'applied', 'interview']
 /** @type {BoardInfo[]} */
 export const DEFAULT_BOARD_INFO = [
   {
@@ -32,19 +32,19 @@ export const DEFAULT_BOARD_INFO = [
 /** @type {NewCardInfo} */
 export const DEFAULT_NEW_CARD_INFO = {
   show: false,
-  title: 'wishlist'
+  step: 'wishlist'
 }
 
 /**
- * @typedef ColumnHeadlines
- * @type {typeof COLUMN_HEADLINES[number]}
+ * @typedef JobStep
+ * @type {typeof JOB_STEPS[number]}
 */
 
 /**
  * @typedef BoardInfo
  * @type {object}
  *
- * @prop {ColumnHeadlines} headline
+ * @prop {JobStep} headline
  * @prop {Array<JobPostInfo>} items
 */
 
@@ -67,5 +67,5 @@ export const DEFAULT_NEW_CARD_INFO = {
  * @type {object}
  *
  * @prop {boolean} show
- * @prop {ColumnHeadlines} title
+ * @prop {JobStep} step
 */

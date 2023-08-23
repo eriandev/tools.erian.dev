@@ -3,20 +3,20 @@ import { BOARD_INFO_KEY, DEFAULT_BOARD_INFO } from './consts'
 
 export const boardInfo = writable(DEFAULT_BOARD_INFO)
 /**
- * @param {import('./consts.js').ColumnHeadlines} title
+ * @param {import('./consts.js').JobStep} step
  * @param {import('./consts.js').JobPostInfo} newJobInfo
 */
-export function addNewJobTo (title, newJobInfo) {
-  boardInfo.update(info => info.map(({ headline, items }) => headline === title ? { headline, items: [newJobInfo, ...items] } : { headline, items }))
+export function createNewJobPost (step, newJobInfo) {
+  boardInfo.update(info => info.map(({ headline, items }) => headline === step ? { headline, items: [newJobInfo, ...items] } : { headline, items }))
   persistBoardInfo()
 }
 /**
- * @param {import('./consts.js').ColumnHeadlines} columnName
+ * @param {import('./consts.js').JobStep} columnTitle
  * @param {import('./consts.js').JobPostInfo[]} updatedCards
 */
-export function updateColumnCards (columnName, updatedCards) {
+export function updateColumnCards (columnTitle, updatedCards) {
   const newBoardInfo = get(boardInfo)
-  const colId = newBoardInfo.findIndex(({ headline }) => headline === columnName)
+  const colId = newBoardInfo.findIndex(({ headline }) => headline === columnTitle)
   newBoardInfo[colId].items = updatedCards
   boardInfo.set(newBoardInfo)
   persistBoardInfo()
