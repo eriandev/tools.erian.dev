@@ -1,5 +1,5 @@
 <script>
-  import { modalInfo } from '../util/store'
+  import { useNewJobPost } from './NewJobPostModal.svelte'
 
   import Icon from './Icon.svelte'
 
@@ -7,6 +7,8 @@
   export let title
   /** @type {number} */
   export let count = 0
+
+  const { openNewJobPostModal } = useNewJobPost()
 
   $: limitedCount = count > 99 ? 99 : count
 </script>
@@ -22,7 +24,7 @@
     </div>
     <button
       class="w-full rounded-lg bg-jt-gray-100 py-2 text-center font-medium text-jt-gray-400 transition-transform duration-150 ease-in-out active:scale-95"
-      on:click={() => modalInfo.set({ isOpen: true, title })}
+      on:click={() => openNewJobPostModal(title)}
     >
       + Add Job
     </button>

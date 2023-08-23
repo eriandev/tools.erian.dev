@@ -1,24 +1,36 @@
 <script>
+  import { createEventDispatcher } from 'svelte'
   import { fade, fly } from 'svelte/transition'
-
-  import { closeModal, modalInfo } from '../util/store'
 
   import Icon from './Icon.svelte'
 
+  /** @type {boolean} */
+  export let show = false
   /** @type {number=} */
   export let y = 200
   /** @type {number=} */
   export let duration = 400
 
+  const dispatch = createEventDispatcher()
+
   /**
    * @param {any} event
+   * @param {boolean} force
    */
-  function closeHandler(event) {
-    if (event.target?.id === 'overlay') closeModal()
+  function closeHandler(event, force = false) {
+    const isEscPressed = event?.key === 'Escape'
+    const isOverlayClicked = event?.target?.id === 'overlay'
+
+    if (isEscPressed || isOverlayClicked || force) {
+      dispatch('close')
+      show = false
+    }
   }
 </script>
 
-{#if $modalInfo.isOpen}
+<svelte:window on:keydown={closeHandler} />
+
+{#if show}
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div
@@ -36,7 +48,7 @@
         size={20}
         role="button"
         class="absolute right-5 top-5 cursor-pointer text-jt-gray-200"
-        on:click={closeModal}
+        on:click={() => closeHandler(null, true)}
       />
       <slot />
     </section>

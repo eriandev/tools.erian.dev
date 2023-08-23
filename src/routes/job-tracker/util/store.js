@@ -1,10 +1,10 @@
 import { get, writable } from 'svelte/store'
-import { BOARD_INFO_KEY, DEFAULT_BOARD_INFO, DEFAULT_MODAL_INFO } from './consts'
+import { BOARD_INFO_KEY, DEFAULT_BOARD_INFO } from './consts'
 
 export const boardInfo = writable(DEFAULT_BOARD_INFO)
 /**
  * @param {import('./consts.js').ColumnHeadlines} title
- * @param {import('./consts.js').ColumnInfo} newJobInfo
+ * @param {import('./consts.js').JobPostInfo} newJobInfo
 */
 export function addNewJobTo (title, newJobInfo) {
   boardInfo.update(info => info.map(({ headline, items }) => headline === title ? { headline, items: [newJobInfo, ...items] } : { headline, items }))
@@ -12,7 +12,7 @@ export function addNewJobTo (title, newJobInfo) {
 }
 /**
  * @param {import('./consts.js').ColumnHeadlines} columnName
- * @param {import('./consts.js').ColumnInfo[]} updatedCards
+ * @param {import('./consts.js').JobPostInfo[]} updatedCards
 */
 export function updateColumnCards (columnName, updatedCards) {
   const newBoardInfo = get(boardInfo)
@@ -42,9 +42,4 @@ export function initBoardInfo () {
 
 export function resetBoardInfo () {
   boardInfo.set(DEFAULT_BOARD_INFO)
-}
-
-export const modalInfo = writable(DEFAULT_MODAL_INFO)
-export function closeModal () {
-  modalInfo.set(DEFAULT_MODAL_INFO)
 }

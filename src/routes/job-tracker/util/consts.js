@@ -29,9 +29,9 @@ export const DEFAULT_BOARD_INFO = [
     items: []
   }
 ]
-/** @type {ModalInfo} */
-export const DEFAULT_MODAL_INFO = {
-  isOpen: false,
+/** @type {NewCardInfo} */
+export const DEFAULT_NEW_CARD_INFO = {
+  show: false,
   title: 'wishlist'
 }
 
@@ -45,11 +45,11 @@ export const DEFAULT_MODAL_INFO = {
  * @type {object}
  *
  * @prop {ColumnHeadlines} headline
- * @prop {Array<ColumnInfo>} items
+ * @prop {Array<JobPostInfo>} items
 */
 
 /**
- * @typedef ColumnInfo
+ * @typedef JobPostInfo
  * @type {object}
  *
  * @prop {string} id
@@ -63,9 +63,9 @@ export const DEFAULT_MODAL_INFO = {
 */
 
 /**
- * @typedef ModalInfo
+ * @typedef NewCardInfo
  * @type {object}
  *
- * @prop {boolean} isOpen
+ * @prop {boolean} show
  * @prop {ColumnHeadlines} title
 */

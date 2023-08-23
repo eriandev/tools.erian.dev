@@ -4,11 +4,11 @@
   import { dndzone } from 'svelte-dnd-action'
 
   import { flipDurationMs } from './util/consts'
-  import { closeModal, boardInfo, initBoardInfo, updateColumnCards } from './util/store'
+  import { boardInfo, initBoardInfo, updateColumnCards } from './util/store'
 
   import Card from './components/Card.svelte'
   import Column from './components/Column.svelte'
-  import NewCard from './components/NewCard.svelte'
+  import NewJobPostModal from './components/NewJobPostModal.svelte'
 
   onMount(() => initBoardInfo())
 
@@ -27,16 +27,7 @@
   function handleDndFinalizeCards({ detail }, headline) {
     updateColumnCards(headline, detail.items)
   }
-
-  /**
-   * @param {KeyboardEvent} event
-   */
-  function keyDownHandler(event) {
-    if (event.key === 'Escape') closeModal()
-  }
 </script>
-
-<svelte:window on:keydown={keyDownHandler} />
 
 <h1 class="px-5 pb-5 pt-10 text-[2rem] md:px-8">Job Tracking</h1>
 
@@ -59,4 +50,4 @@
   {/each}
 </main>
 
-<NewCard />
+<NewJobPostModal />
