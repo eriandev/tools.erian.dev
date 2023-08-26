@@ -1,7 +1,9 @@
 <script>
+  import { useEditJobPost } from './EditJobPostModal.svelte'
+
   import Icon from './Icon.svelte'
 
-  /** @type {string=} */
+  /** @type {string} */
   export let id
   /** @type {string} */
   export let location
@@ -17,11 +19,16 @@
   export let remote = false
   /** @type {string=} */
   export let meetUrl = undefined
+
+  const { openEditJobPostModal } = useEditJobPost()
 </script>
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <article
   {id}
   class="flex cursor-pointer flex-col gap-y-1 rounded-lg bg-white p-4 shadow-sm outline-none transition-shadow duration-200 ease-in-out hover:shadow-md"
+  on:click={() => openEditJobPostModal(id)}
 >
   <h3 class="line-clamp-1 text-xl capitalize leading-none">{location}</h3>
   <p class="mb-2 line-clamp-2 overflow-hidden text-lg leading-none text-jt-gray-400">{jobTitle}</p>

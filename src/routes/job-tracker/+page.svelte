@@ -9,6 +9,7 @@
   import Card from './components/Card.svelte'
   import Column from './components/Column.svelte'
   import NewJobPostModal from './components/NewJobPostModal.svelte'
+  import EditJobPostModal from './components/EditJobPostModal.svelte'
 
   onMount(() => initBoardInfo())
 
@@ -51,3 +52,4 @@
 </main>
 
 <NewJobPostModal />
+<EditJobPostModal />

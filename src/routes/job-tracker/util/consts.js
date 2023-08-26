@@ -34,6 +34,10 @@ export const DEFAULT_NEW_CARD_INFO = {
   show: false,
   step: 'wishlist'
 }
+/** @type {EditCardInfo} */
+export const DEFAULT_EDIT_CARD_INFO = {
+  show: false
+}
 
 /**
  * @typedef JobStep
@@ -68,4 +72,12 @@ export const DEFAULT_NEW_CARD_INFO = {
  *
  * @prop {boolean} show
  * @prop {JobStep} step
+*/
+
+/**
+ * @typedef EditCardInfo
+ * @type {object}
+ *
+ * @prop {boolean=} show
+ * @prop {Partial<JobPostInfo>=} info
 */
