@@ -3,6 +3,10 @@
   export let primary = false
   /** @type {boolean=} */
   export let disabled = false
+  /** @type {string=} */
+  export { extraClass as class }
+
+  let extraClass = ''
 
   const primaryClass = 'border-jt-primary bg-jt-primary font-medium text-white'
   const secondaryClass = 'border-jt-gray-200 bg-transparent font-normal text-jt-black'
@@ -11,7 +15,7 @@
 </script>
 
 <button
-  class="{baseClass} {primary ? primaryClass : secondaryClass} {disabled ? disabledClass : ''}"
+  class="{baseClass} {primary ? primaryClass : secondaryClass} {disabled ? disabledClass : ''} {extraClass}"
   {disabled}
   {...$$restProps}
   on:click|preventDefault

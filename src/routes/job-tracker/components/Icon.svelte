@@ -1,7 +1,7 @@
 <script context="module">
   /**
    * @typedef IconNames
-   * @type {'applied'|'briefcase'|'interview'|'link'|'location'|'paid'|'remote'|'wishlist'|'x'}
+   * @type {'applied'|'briefcase'|'check'|'interview'|'link'|'location'|'paid'|'remote'|'trash'|'wishlist'|'x'}
    */
 </script>
 
@@ -9,6 +9,8 @@
   import x from '../icons/X.svelte'
   import link from '../icons/Link.svelte'
   import paid from '../icons/Paid.svelte'
+  import trash from '../icons/Trash.svelte'
+  import check from '../icons/Check.svelte'
   import remote from '../icons/Remote.svelte'
   import applied from '../icons/Applied.svelte'
   import wishlist from '../icons/Wishlist.svelte'
@@ -25,6 +27,8 @@
     x,
     link,
     paid,
+    check,
+    trash,
     remote,
     applied,
     wishlist,

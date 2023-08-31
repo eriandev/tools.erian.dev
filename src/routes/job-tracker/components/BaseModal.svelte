@@ -45,7 +45,7 @@
     >
       <Icon
         name="x"
-        size={20}
+        size={36}
         role="button"
         class="absolute right-5 top-5 cursor-pointer text-jt-gray-200"
         on:click={() => closeHandler(null, true)}

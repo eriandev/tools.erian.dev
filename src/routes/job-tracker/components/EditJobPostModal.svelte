@@ -2,7 +2,7 @@
   import { get, writable } from 'svelte/store'
 
   import { DEFAULT_EDIT_CARD_INFO } from '../util/consts'
-  import { getCardInfoById, updateCardInfo } from '../util/store'
+  import { getCardInfoById, updateCardInfo, deleteCardById } from '../util/store'
 
   const store = writable(DEFAULT_EDIT_CARD_INFO)
 
@@ -29,7 +29,15 @@
       updateCardInfo(info.id, newJobPostInfo)
     }
 
-    return { openEditJobPostModal, closeEditJobPostModal, saveEditJobPost }
+    /**
+     * @param {string} cardId
+     */
+    const deleteJobPost = async (cardId) => {
+      await deleteCardById(cardId)
+      closeEditJobPostModal()
+    }
+
+    return { openEditJobPostModal, closeEditJobPostModal, saveEditJobPost, deleteJobPost }
   }
 </script>
 
@@ -40,7 +48,9 @@
   import Button from './Button.svelte'
   import BaseModal from './BaseModal.svelte'
   import EditableText from './EditableText.svelte'
+  import DeleteButton from './DeleteButton.svelte'
 
+  let id = ''
   let salary = ''
   let jobTitle = ''
   let location = ''
@@ -49,12 +59,13 @@
   /** @type {import('svelte/store').Unsubscriber} */
   let unsubStore = () => {}
 
-  const { saveEditJobPost, closeEditJobPostModal } = useEditJobPost()
+  const { saveEditJobPost, closeEditJobPostModal, deleteJobPost } = useEditJobPost()
 
   onMount(
     () =>
       (unsubStore = store.subscribe(({ info, show }) => {
         if (show) {
+          id = info?.id ?? ''
           salary = info?.salary ?? ''
           jobTitle = info?.jobTitle ?? ''
           location = info?.location ?? ''
@@ -62,6 +73,7 @@
           return
         }
 
+        id = ''
         salary = ''
         jobTitle = ''
         location = ''
@@ -78,6 +90,10 @@
       return
     }
     editing = true
+  }
+
+  async function deleteCard() {
+    await deleteJobPost(id)
   }
 </script>
 
@@ -112,12 +128,16 @@
     </article>
   </section>
 
-  <section class="flex justify-end gap-x-4">
-    {#if editing}
-      <Button on:click={() => (editing = false)}>Cancel</Button>
-    {/if}
-    <Button primary on:click={editSaveHandler}>
-      {editing ? 'Save' : 'Edit'}
-    </Button>
+  <section class="flex items-center justify-between gap-x-4">
+    <DeleteButton on:delete={deleteCard} />
+
+    <div class="flex gap-x-2">
+      {#if editing}
+        <Button on:click={() => (editing = false)}>Cancel</Button>
+      {/if}
+      <Button primary on:click={editSaveHandler}>
+        {editing ? 'Save' : 'Edit'}
+      </Button>
+    </div>
   </section>
 </BaseModal>

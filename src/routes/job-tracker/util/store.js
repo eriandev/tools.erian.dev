@@ -64,6 +64,18 @@ export function getCardPositionById (cardId) {
 
   return result
 }
+/**
+ * @param {string} cardId
+*/
+export async function deleteCardById (cardId) {
+  const [colPos] = getCardPositionById(cardId)
+  boardInfo.update(actualInfo => {
+    const actualColumnCards = actualInfo[colPos].items
+    actualInfo[colPos].items = actualColumnCards.filter(({ id }) => id !== cardId)
+    return actualInfo
+  })
+  persistBoardInfo()
+}
 
 export function persistBoardInfo () {
   const info = get(boardInfo)
