@@ -86,7 +86,7 @@
   </section>
 
   <section class="flex justify-end gap-x-4">
-    <Button on:click={closeNewJobPostModal}>Cancel</Button>
+    <Button secondary on:click={closeNewJobPostModal}>Cancel</Button>
     <Button
       primary
       disabled={!Boolean(jobTitle && location)}

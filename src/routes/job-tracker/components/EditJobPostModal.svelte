@@ -133,7 +133,7 @@
 
     <div class="flex gap-x-2">
       {#if editing}
-        <Button on:click={() => (editing = false)}>Cancel</Button>
+        <Button secondary on:click={() => (editing = false)}>Cancel</Button>
       {/if}
       <Button primary on:click={editSaveHandler}>
         {editing ? 'Save' : 'Edit'}

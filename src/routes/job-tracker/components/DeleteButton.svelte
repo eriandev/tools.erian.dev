@@ -25,10 +25,10 @@
 
 {#if confirming}
   <div class="flex gap-x-2">
-    <Button primary on:click={() => handleConfirmation(true)}>
+    <Button tertiary on:click={() => handleConfirmation(true)}>
       <Icon name="check" size={24} />
     </Button>
-    <Button class="bg-jt-red text-white" on:click={() => handleConfirmation(false)}>
+    <Button secondary on:click={() => handleConfirmation(false)}>
       <Icon name="x" size={24} />
     </Button>
   </div>
