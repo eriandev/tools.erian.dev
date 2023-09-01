@@ -18,5 +18,5 @@
     {/if}
     <span>{label}</span>
   </label>
-  <input bind:value {id} class="bg-jt-sky-blue px-4 py-2" />
+  <input bind:value {id} class="bg-jt-secondary px-4 py-2" />
 </div>

@@ -10,34 +10,34 @@
   const dispatch = createEventDispatcher()
 
   /**
-   * @param {boolean} isConfirmed
+   * @param {boolean} value
    */
-  function handleConfirmation(isConfirmed) {
-    if (isConfirmed) {
-      dispatch('delete', true)
-      confirming = false
-      return
-    }
+  function confirmHandler(value) {
+    confirming = value
+    dispatch('confirming', value)
+  }
 
-    confirming = false
+  function deleteHandler() {
+    dispatch('delete', true)
+    confirmHandler(false)
   }
 </script>
 
 {#if confirming}
   <div class="flex gap-x-2">
-    <Button tertiary on:click={() => handleConfirmation(true)}>
+    <Button tertiary on:click={deleteHandler}>
       <Icon name="check" size={24} />
     </Button>
-    <Button secondary on:click={() => handleConfirmation(false)}>
+    <Button secondary on:click={() => confirmHandler(false)}>
       <Icon name="x" size={24} />
     </Button>
   </div>
 {:else}
   <Button
     class="flex items-center gap-x-1 border-transparent font-medium text-jt-red"
-    on:click={() => (confirming = true)}
+    on:click={() => confirmHandler(true)}
   >
     <Icon name="trash" size={20} />
-    <span>Delete</span>
+    <span class="hidden sm:block">Delete</span>
   </Button>
 {/if}

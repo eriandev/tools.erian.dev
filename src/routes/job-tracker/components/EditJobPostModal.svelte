@@ -56,6 +56,7 @@
   let location = ''
   let jobPostUrl = ''
   let editing = false
+  let deleting = false
   /** @type {import('svelte/store').Unsubscriber} */
   let unsubStore = () => {}
 
@@ -83,13 +84,21 @@
   )
   onDestroy(() => unsubStore())
 
+  /**
+   * @param {CustomEvent<boolean>} value
+   */
+  function changeDeletionState(value) {
+    editing = false
+    deleting = value.detail
+  }
+
   function editSaveHandler() {
     if (editing) {
       saveEditJobPost({ location, jobTitle, jobPostUrl, salary })
       editing = false
       return
     }
-    editing = true
+    editing = !deleting
   }
 
   async function deleteCard() {
@@ -98,38 +107,36 @@
 </script>
 
 <BaseModal show={$store.show} on:close={closeEditJobPostModal}>
-  <EditableText
-    bind:value={location}
-    editable={editing}
-    extraClass="text-xl capitalize text-jt-black md:text-2xl px-0"
-  />
+  <div class="pr-10 md:pr-5">
+    <EditableText large bind:value={location} editable={editing} />
+  </div>
 
   <section class="grid gap-y-4 pb-14 pt-6 md:gap-x-5 md:gap-y-[18px]">
-    <article class="grid grid-cols-[124px_auto]">
+    <article class="grid grid-cols-[100px_auto] md:grid-cols-[120px_auto]">
       <div class="flex items-center gap-x-1.5 text-jt-black">
         <Icon name="briefcase" size={18} />
-        <span class="text-jt-black">Job Title</span>
+        <span>Job Title</span>
       </div>
       <EditableText bind:value={jobTitle} editable={editing} />
     </article>
-    <article class="grid grid-cols-[124px_auto]">
+    <article class="grid grid-cols-[100px_auto] md:grid-cols-[120px_auto]">
       <div class="flex items-center gap-x-1.5 text-jt-black">
         <Icon name="link" />
-        <span class="text-jt-black">URL</span>
+        <span>URL</span>
       </div>
       <EditableText bind:value={jobPostUrl} type="link" label="Go to job post" editable={editing} />
     </article>
-    <article class="grid grid-cols-[124px_auto]">
+    <article class="grid grid-cols-[100px_auto] md:grid-cols-[120px_auto]">
       <div class="flex items-center gap-x-1.5 text-jt-black">
         <Icon name="paid" />
-        <span class="text-jt-black">Salary</span>
+        <span>Salary</span>
       </div>
       <EditableText bind:value={salary} editable={editing} />
     </article>
   </section>
 
   <section class="flex items-center justify-between gap-x-4">
-    <DeleteButton on:delete={deleteCard} />
+    <DeleteButton on:delete={deleteCard} on:confirming={changeDeletionState} />
 
     <div class="flex gap-x-2">
       {#if editing}

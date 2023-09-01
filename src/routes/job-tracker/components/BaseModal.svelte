@@ -41,7 +41,7 @@
   >
     <section
       transition:fly={{ y, duration }}
-      class="relative z-50 w-full max-w-sm rounded-lg bg-white p-5 md:max-w-[540px] md:px-10 md:py-8"
+      class="relative z-50 w-full max-w-xs rounded-lg bg-white p-5 sm:max-w-sm md:max-w-[540px] md:px-10 md:py-8"
     >
       <Icon
         name="x"
