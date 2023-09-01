@@ -1,6 +1,8 @@
 <script>
   import { createEventDispatcher } from 'svelte'
 
+  import Icon from './Icon.svelte'
+
   /** @type {string=} */
   export let value = ''
   /** @type {'text'|'link'} */
@@ -31,9 +33,11 @@
       target="_blank"
       rel="noopener noreferrer"
       href={value}
-      class="w-max py-1 text-jt-gray-400 {large ? ' text-xl md:text-2xl' : ''}"
+      title={value}
+      class="flex w-max items-center gap-x-1 py-1 text-jt-blue underline {large ? ' text-xl md:text-2xl' : ''}"
     >
       {label}
+      <Icon name="link" size={12} />
     </a>
   {:else if type !== 'link'}
     <span class="block truncate py-1 text-jt-gray-400 {large ? ' text-xl md:text-2xl' : ''}">
