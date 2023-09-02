@@ -106,7 +106,7 @@
   }
 </script>
 
-<BaseModal show={$store.show} on:close={closeEditJobPostModal}>
+<BaseModal show={$store.show} options={{ overlayClick: !editing }} on:close={closeEditJobPostModal}>
   <div class="pr-10 md:pr-5">
     <EditableText large bind:value={location} editable={editing} />
   </div>

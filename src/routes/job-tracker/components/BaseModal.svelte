@@ -1,3 +1,12 @@
+<script context="module">
+  /**
+   * @typedef {object} BaseModalOptions
+   *
+   * @prop {boolean=} overlayClick
+   * @prop {boolean=} escapeKeyPress
+   */
+</script>
+
 <script>
   import { createEventDispatcher } from 'svelte'
   import { fade, fly } from 'svelte/transition'
@@ -10,16 +19,19 @@
   export let y = 200
   /** @type {number=} */
   export let duration = 400
+  /** @type {BaseModalOptions} */
+  export let options = {}
 
   const dispatch = createEventDispatcher()
 
   /**
    * @param {any} event
-   * @param {boolean} force
+   * @param {boolean=} force
    */
   function closeHandler(event, force = false) {
-    const isEscPressed = event?.key === 'Escape'
-    const isOverlayClicked = event?.target?.id === 'overlay'
+    const { overlayClick = true, escapeKeyPress = true } = options
+    const isEscPressed = escapeKeyPress ? event?.key === 'Escape' : false
+    const isOverlayClicked = overlayClick ? event?.target?.id === 'overlay' : false
 
     if (isEscPressed || isOverlayClicked || force) {
       dispatch('close')
