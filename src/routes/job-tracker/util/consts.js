@@ -7,18 +7,7 @@ export const JOB_STEPS = ['wishlist', 'applied', 'interview']
 export const DEFAULT_BOARD_INFO = [
   {
     headline: 'wishlist',
-    items: [
-      {
-        id: '7f5affb1-6e41-4a7d-bd26-613abc4cfc8e',
-        remote: true,
-        salary: '5000',
-        timestamp: 1691721018580,
-        location: 'Miskatonic University',
-        jobTitle: 'Professor, Anthropology and Occultism Department',
-        jobPostUrl: 'https://google.com',
-        meetUrl: 'https://meet.new'
-      }
-    ]
+    items: []
   },
   {
     headline: 'applied',

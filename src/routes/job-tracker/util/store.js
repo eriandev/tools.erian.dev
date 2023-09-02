@@ -82,17 +82,18 @@ export function persistBoardInfo () {
   localStorage.setItem(BOARD_INFO_KEY, JSON.stringify(info))
 }
 
-export function initBoardInfo () {
+export async function initBoardInfo () {
   const rawInfo = localStorage.getItem(BOARD_INFO_KEY)
 
   if (!rawInfo) {
     resetBoardInfo()
-    return
+    return true
   }
 
   /** @type {import('./consts.js').BoardInfo[]} */
   const recoveredInfo = JSON.parse(rawInfo)
   boardInfo.set(recoveredInfo)
+  return true
 }
 
 export function resetBoardInfo () {

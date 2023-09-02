@@ -11,7 +11,9 @@
   import NewJobPostModal from './components/NewJobPostModal.svelte'
   import EditJobPostModal from './components/EditJobPostModal.svelte'
 
-  onMount(() => initBoardInfo())
+  let isLoadingInitialInfo = true
+
+  onMount(async () => (isLoadingInitialInfo = !(await initBoardInfo())))
 
   /**
    * @param {CustomEvent} event
@@ -34,7 +36,7 @@
 
 <main class="flex gap-x-8 overflow-x-auto px-5 md:px-8">
   {#each $boardInfo as { headline, items } (headline)}
-    <Column title={headline} count={items.length}>
+    <Column title={headline} count={items.length} loading={isLoadingInitialInfo}>
       <div
         class="flex min-h-[400px] flex-col gap-y-2"
         use:dndzone={{ items, flipDurationMs, dropTargetStyle: { outline: 'none' } }}
