@@ -62,27 +62,31 @@
 
   const { saveEditJobPost, closeEditJobPostModal, deleteJobPost } = useEditJobPost()
 
-  onMount(
-    () =>
-      (unsubStore = store.subscribe(({ info, show }) => {
-        if (show) {
-          id = info?.id ?? ''
-          salary = info?.salary ?? ''
-          jobTitle = info?.jobTitle ?? ''
-          location = info?.location ?? ''
-          jobPostUrl = info?.jobPostUrl ?? ''
-          return
-        }
-
-        id = ''
-        salary = ''
-        jobTitle = ''
-        location = ''
-        jobPostUrl = ''
-        editing = false
-      }))
-  )
+  onMount(() => initial())
   onDestroy(() => unsubStore())
+
+  function initial() {
+    unsubStore = store.subscribe(({ info, show }) => {
+      if (show) {
+        updateValues(info)
+        return
+      }
+
+      updateValues()
+      editing = false
+    })
+  }
+
+  /**
+   * @param {Partial<import('../util/consts.js').JobPostInfo>=} info
+   */
+  function updateValues(info) {
+    id = info?.id ?? ''
+    salary = info?.salary ?? ''
+    jobTitle = info?.jobTitle ?? ''
+    location = info?.location ?? ''
+    jobPostUrl = info?.jobPostUrl ?? ''
+  }
 
   /**
    * @param {CustomEvent<boolean>} value
@@ -98,17 +102,14 @@
       editing = false
       return
     }
+
     editing = !deleting
   }
 
   function cancelHandler() {
     const { info } = get(store)
 
-    salary = info?.salary ?? ''
-    jobTitle = info?.jobTitle ?? ''
-    location = info?.location ?? ''
-    jobPostUrl = info?.jobPostUrl ?? ''
-
+    updateValues(info)
     editing = false
   }
 
