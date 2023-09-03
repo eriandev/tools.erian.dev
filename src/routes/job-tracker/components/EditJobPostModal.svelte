@@ -101,6 +101,17 @@
     editing = !deleting
   }
 
+  function cancelHandler() {
+    const { info } = get(store)
+
+    salary = info?.salary ?? ''
+    jobTitle = info?.jobTitle ?? ''
+    location = info?.location ?? ''
+    jobPostUrl = info?.jobPostUrl ?? ''
+
+    editing = false
+  }
+
   async function deleteCard() {
     await deleteJobPost(id)
   }
@@ -140,7 +151,7 @@
 
     <div class="flex gap-x-2">
       {#if editing}
-        <Button secondary on:click={() => (editing = false)}>Cancel</Button>
+        <Button secondary on:click={cancelHandler}>Cancel</Button>
       {/if}
       <Button primary on:click={editSaveHandler}>
         {editing ? 'Save' : 'Edit'}
