@@ -94,6 +94,7 @@
   function changeDeletionState(value) {
     editing = false
     deleting = value.detail
+    cancelHandler()
   }
 
   function editSaveHandler() {
