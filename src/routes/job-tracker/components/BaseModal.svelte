@@ -52,8 +52,9 @@
     on:click={closeHandler}
   >
     <section
+      id="modal"
       transition:fly={{ y, duration }}
-      class="relative z-50 w-full max-w-xs rounded-lg bg-white p-5 sm:max-w-sm md:max-w-[540px] md:px-10 md:py-8"
+      class="relative z-50 max-h-[95dvh] w-full max-w-xs overflow-y-auto rounded-lg bg-white p-5 sm:max-w-sm md:max-w-[540px] md:px-10 md:py-8"
     >
       <Icon
         name="x"
@@ -66,3 +67,30 @@
     </section>
   </div>
 {/if}
+
+<style>
+  @media (any-pointer: fine) {
+    #modal {
+      scrollbar-width: thin;
+      scrollbar-color: theme('colors.jt.primary') theme('colors.jt.secondary');
+    }
+
+    #modal::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    #modal::-webkit-scrollbar-track {
+      border-radius: 8px;
+      background: theme('colors.jt.secondary');
+    }
+
+    #modal::-webkit-scrollbar-thumb {
+      border-radius: 8px;
+      background: theme('colors.jt.primary');
+    }
+
+    #modal::-webkit-scrollbar-thumb:hover {
+      background: #48a5a9;
+    }
+  }
+</style>
