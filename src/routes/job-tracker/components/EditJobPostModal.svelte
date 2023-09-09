@@ -27,6 +27,7 @@
       if (!info?.id) return
 
       updateCardInfo(info.id, newJobPostInfo)
+      state.set({ show: true, info: { ...info, ...newJobPostInfo } })
     }
 
     /**
