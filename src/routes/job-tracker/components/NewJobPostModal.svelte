@@ -22,7 +22,7 @@
      * @param {Omit<import('../util/consts.js').JobPostInfo, 'id' | 'timestamp'>} info
      */
     const addNewCardTo = (step, info) => {
-      const { salary, location, jobTitle, jobPostUrl, remote } = info
+      const { salary, location, jobTitle, jobPostUrl, remote, meetUrl } = info
 
       if (!Boolean(jobTitle && location)) return
 
@@ -33,6 +33,7 @@
         id,
         salary,
         remote,
+        meetUrl,
         location,
         jobTitle,
         timestamp,
@@ -55,6 +56,7 @@
   import BaseModal from './BaseModal.svelte'
 
   let salary = ''
+  let meetUrl = ''
   let jobTitle = ''
   let location = ''
   let remote = false
@@ -87,6 +89,7 @@
     <Input bind:value={location} icon="location" label="Location" />
     <Input bind:value={jobPostUrl} icon="link" label="URL" />
     <Input bind:value={salary} icon="paid" label="Salary" />
+    <Input bind:value={meetUrl} icon="paid" label="Meet URL" />
     <Checkbox bind:checked={remote} icon="remote" label="Remote" />
   </section>
 

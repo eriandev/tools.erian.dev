@@ -35,7 +35,7 @@
 <h1 class="px-5 pb-5 pt-10 text-[2rem] md:px-8">Job Tracking</h1>
 
 <main class="flex gap-x-8 overflow-x-auto px-5 md:px-8">
-  {#each $boardInfo as { headline, items } (headline)}
+  {#each $boardInfo as { headline, items }, index (headline)}
     <Column title={headline} count={items.length} loading={isLoadingInitialInfo}>
       <div
         class="flex min-h-[400px] flex-col gap-y-2"
@@ -45,7 +45,17 @@
       >
         {#each items as { id, remote, location, jobTitle, timestamp, salary, jobPostUrl, meetUrl } (id)}
           <div animate:flip={{ duration: flipDurationMs }}>
-            <Card {id} {remote} {location} {jobTitle} {timestamp} {salary} {jobPostUrl} {meetUrl} />
+            <Card
+              {id}
+              {remote}
+              {location}
+              {jobTitle}
+              {timestamp}
+              {salary}
+              {jobPostUrl}
+              {meetUrl}
+              showMeet={index === 2}
+            />
           </div>
         {/each}
       </div>

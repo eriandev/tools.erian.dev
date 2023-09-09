@@ -22,7 +22,7 @@
     'peer-checked:bg-jt-primary peer-checked:before:-left-full peer-checked:after:left-0 peer-checked:active:after:left-[10%]'
 </script>
 
-<div class="flex w-max flex-col gap-y-1 text-jt-gray-400{disabled ? ' opacity-70' : ''}">
+<div class="flex w-max flex-col gap-y-[6px] text-jt-gray-400{disabled ? ' opacity-70' : ''}">
   {#if label}
     <label for={id} class="flex items-center gap-x-[6px]">
       {#if icon}

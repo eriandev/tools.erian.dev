@@ -53,6 +53,7 @@
 
   let id = ''
   let salary = ''
+  let meetUrl = ''
   let jobTitle = ''
   let location = ''
   let remote = false
@@ -85,6 +86,7 @@
   function updateValues(info) {
     id = info?.id ?? ''
     salary = info?.salary ?? ''
+    meetUrl = info?.meetUrl ?? ''
     remote = info?.remote ?? false
     jobTitle = info?.jobTitle ?? ''
     location = info?.location ?? ''
@@ -102,7 +104,7 @@
 
   function editSaveHandler() {
     if (editing) {
-      saveEditJobPost({ location, jobTitle, jobPostUrl, remote, salary })
+      saveEditJobPost({ location, jobTitle, jobPostUrl, salary, remote, meetUrl })
       editing = false
       return
     }
@@ -148,6 +150,13 @@
         <span>Salary</span>
       </div>
       <EditableText bind:value={salary} editable={editing} />
+    </article>
+    <article class="grid grid-cols-[100px_auto] md:grid-cols-[120px_auto]">
+      <div class="flex items-center gap-x-1.5 text-jt-black">
+        <Icon name="link" />
+        <span>Meet URL</span>
+      </div>
+      <EditableText bind:value={meetUrl} type="link" label="Go to meeting" editable={editing} />
     </article>
     <article class="grid grid-cols-[100px_auto] md:grid-cols-[120px_auto]">
       <div class="flex items-center gap-x-1.5 text-jt-black">
