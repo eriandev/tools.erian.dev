@@ -3,18 +3,18 @@
   import { createNewJobPost } from '../util/store'
   import { DEFAULT_NEW_CARD_INFO } from '../util/consts'
 
-  const store = writable(DEFAULT_NEW_CARD_INFO)
+  const state = writable(DEFAULT_NEW_CARD_INFO)
 
   export function useNewJobPost() {
     /**
      * @param {import('../util/consts.js').JobStep} step
      */
     const openNewJobPostModal = (step) => {
-      store.set({ show: true, step })
+      state.set({ show: true, step })
     }
 
     const closeNewJobPostModal = () => {
-      store.set({ show: false, step: 'wishlist' })
+      state.set({ show: false, step: 'wishlist' })
     }
 
     /**
@@ -66,7 +66,7 @@
 
   onMount(
     () =>
-      (unsubStore = store.subscribe(({ show }) => {
+      (unsubStore = state.subscribe(({ show }) => {
         if (!show) {
           salary = ''
           jobTitle = ''
@@ -79,8 +79,8 @@
   onDestroy(() => unsubStore())
 </script>
 
-<BaseModal show={$store.show} on:close={closeNewJobPostModal}>
-  <h4 class="text-xl capitalize text-jt-gray-400 md:text-2xl">new {$store.step} job</h4>
+<BaseModal show={$state.show} on:close={closeNewJobPostModal}>
+  <h4 class="text-xl capitalize text-jt-gray-400 md:text-2xl">new {$state.step} job</h4>
 
   <section class="grid gap-y-4 pb-14 pt-6 md:grid-cols-[repeat(2,minmax(auto,220px))] md:gap-x-5 md:gap-y-[18px]">
     <Input bind:value={jobTitle} icon="briefcase" label="Job Title" />
@@ -95,7 +95,7 @@
     <Button
       primary
       disabled={!Boolean(jobTitle && location)}
-      on:click={() => addNewCardTo($store.step, { salary, location, jobTitle, jobPostUrl, remote })}
+      on:click={() => addNewCardTo($state.step, { salary, location, jobTitle, jobPostUrl, remote })}
     >
       Save
     </Button>

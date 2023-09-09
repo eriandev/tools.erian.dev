@@ -4,7 +4,7 @@
   import { DEFAULT_EDIT_CARD_INFO } from '../util/consts'
   import { getCardInfoById, updateCardInfo, deleteCardById } from '../util/store'
 
-  const store = writable(DEFAULT_EDIT_CARD_INFO)
+  const state = writable(DEFAULT_EDIT_CARD_INFO)
 
   export function useEditJobPost() {
     /**
@@ -12,18 +12,18 @@
      */
     const openEditJobPostModal = (id) => {
       const info = getCardInfoById(id)
-      store.set({ show: true, info })
+      state.set({ show: true, info })
     }
 
     const closeEditJobPostModal = () => {
-      store.set({ show: false })
+      state.set({ show: false })
     }
 
     /**
      * @param {Omit<Partial<import('../util/consts.js').JobPostInfo>, 'id' | 'timestamp'>} newJobPostInfo
      */
     const saveEditJobPost = (newJobPostInfo) => {
-      const { info } = get(store)
+      const { info } = get(state)
       if (!info?.id) return
 
       updateCardInfo(info.id, newJobPostInfo)
@@ -68,7 +68,7 @@
   onDestroy(() => unsubStore())
 
   function initial() {
-    unsubStore = store.subscribe(({ info, show }) => {
+    unsubStore = state.subscribe(({ info, show }) => {
       if (show) {
         updateValues(info)
         return
@@ -85,7 +85,7 @@
   function updateValues(info) {
     id = info?.id ?? ''
     salary = info?.salary ?? ''
-    remote = Boolean(info?.remote)
+    remote = info?.remote ?? false
     jobTitle = info?.jobTitle ?? ''
     location = info?.location ?? ''
     jobPostUrl = info?.jobPostUrl ?? ''
@@ -111,7 +111,7 @@
   }
 
   function cancelHandler() {
-    const { info } = get(store)
+    const { info } = get(state)
 
     updateValues(info)
     editing = false
@@ -122,7 +122,7 @@
   }
 </script>
 
-<BaseModal show={$store.show} options={{ overlayClick: !editing }} on:close={closeEditJobPostModal}>
+<BaseModal show={$state.show} options={{ overlayClick: !editing }} on:close={closeEditJobPostModal}>
   <div class="pr-10 md:pr-5">
     <EditableText large bind:value={location} editable={editing} />
   </div>
