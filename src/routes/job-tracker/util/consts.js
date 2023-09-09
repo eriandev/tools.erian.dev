@@ -1,8 +1,10 @@
 export const BOARD_INFO_KEY = 'jt_brd'
 
 export const flipDurationMs = 200
+
 /** @type {Array<'wishlist'|'interview'|'applied'>} */
 export const JOB_STEPS = ['wishlist', 'applied', 'interview']
+
 /** @type {BoardInfo[]} */
 export const DEFAULT_BOARD_INFO = [
   {
@@ -18,11 +20,13 @@ export const DEFAULT_BOARD_INFO = [
     items: []
   }
 ]
+
 /** @type {NewCardInfo} */
 export const DEFAULT_NEW_CARD_INFO = {
   show: false,
   step: 'wishlist'
 }
+
 /** @type {EditCardInfo} */
 export const DEFAULT_EDIT_CARD_INFO = {
   show: false

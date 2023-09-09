@@ -2,6 +2,7 @@ import { get, writable } from 'svelte/store'
 import { BOARD_INFO_KEY, DEFAULT_BOARD_INFO } from './consts'
 
 export const boardInfo = writable(DEFAULT_BOARD_INFO)
+
 /**
  * @param {import('./consts.js').JobStep} step
  * @param {import('./consts.js').JobPostInfo} newJobInfo
@@ -10,6 +11,7 @@ export function createNewJobPost (step, newJobInfo) {
   boardInfo.update(info => info.map(({ headline, items }) => headline === step ? { headline, items: [newJobInfo, ...items] } : { headline, items }))
   persistBoardInfo()
 }
+
 /**
  * @param {import('./consts.js').JobStep} columnTitle
  * @param {import('./consts.js').JobPostInfo[]} updatedCards
@@ -21,6 +23,7 @@ export function updateColumnCards (columnTitle, updatedCards) {
   boardInfo.set(newBoardInfo)
   persistBoardInfo()
 }
+
 /**
  * @param {string} cardId
  * @returns {Partial<import('./consts.js').JobPostInfo>}
@@ -30,6 +33,7 @@ export function getCardInfoById (cardId) {
   const [colPos, cardPos] = getCardPositionById(cardId)
   return actualInfo[colPos].items[cardPos]
 }
+
 /**
  * @param {string} cardId
  * @param {Omit<Partial<import('./consts.js').JobPostInfo>, 'id' | 'timestamp'>} newCardInfo
@@ -43,6 +47,7 @@ export function updateCardInfo (cardId, newCardInfo) {
   })
   persistBoardInfo()
 }
+
 /**
  * @param {string} cardId
  * @returns {[number,number]}
@@ -64,6 +69,7 @@ export function getCardPositionById (cardId) {
 
   return result
 }
+
 /**
  * @param {string} cardId
 */
