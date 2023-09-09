@@ -22,7 +22,7 @@
      * @param {Omit<import('../util/consts.js').JobPostInfo, 'id' | 'timestamp'>} info
      */
     const addNewCardTo = (step, info) => {
-      const { salary, location, jobTitle, jobPostUrl } = info
+      const { salary, location, jobTitle, jobPostUrl, remote } = info
 
       if (!Boolean(jobTitle && location)) return
 
@@ -32,6 +32,7 @@
       createNewJobPost(step, {
         id,
         salary,
+        remote,
         location,
         jobTitle,
         timestamp,
@@ -50,11 +51,13 @@
 
   import Input from './Input.svelte'
   import Button from './Button.svelte'
+  import Checkbox from './Checkbox.svelte'
   import BaseModal from './BaseModal.svelte'
 
   let salary = ''
   let jobTitle = ''
   let location = ''
+  let remote = false
   let jobPostUrl = ''
   /** @type {import('svelte/store').Unsubscriber} */
   let unsubStore = () => {}
@@ -68,6 +71,7 @@
           salary = ''
           jobTitle = ''
           location = ''
+          remote = false
           jobPostUrl = ''
         }
       }))
@@ -83,6 +87,7 @@
     <Input bind:value={location} icon="location" label="Location" />
     <Input bind:value={jobPostUrl} icon="link" label="URL" />
     <Input bind:value={salary} icon="paid" label="Salary" />
+    <Checkbox bind:checked={remote} icon="remote" label="Remote" />
   </section>
 
   <section class="flex justify-end gap-x-4">
@@ -90,7 +95,7 @@
     <Button
       primary
       disabled={!Boolean(jobTitle && location)}
-      on:click={() => addNewCardTo($store.step, { salary, location, jobTitle, jobPostUrl })}
+      on:click={() => addNewCardTo($store.step, { salary, location, jobTitle, jobPostUrl, remote })}
     >
       Save
     </Button>

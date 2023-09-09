@@ -46,6 +46,7 @@
 
   import Icon from './Icon.svelte'
   import Button from './Button.svelte'
+  import Checkbox from './Checkbox.svelte'
   import BaseModal from './BaseModal.svelte'
   import EditableText from './EditableText.svelte'
   import DeleteButton from './DeleteButton.svelte'
@@ -54,6 +55,7 @@
   let salary = ''
   let jobTitle = ''
   let location = ''
+  let remote = false
   let jobPostUrl = ''
   let editing = false
   let deleting = false
@@ -83,6 +85,7 @@
   function updateValues(info) {
     id = info?.id ?? ''
     salary = info?.salary ?? ''
+    remote = Boolean(info?.remote)
     jobTitle = info?.jobTitle ?? ''
     location = info?.location ?? ''
     jobPostUrl = info?.jobPostUrl ?? ''
@@ -99,7 +102,7 @@
 
   function editSaveHandler() {
     if (editing) {
-      saveEditJobPost({ location, jobTitle, jobPostUrl, salary })
+      saveEditJobPost({ location, jobTitle, jobPostUrl, remote, salary })
       editing = false
       return
     }
@@ -145,6 +148,13 @@
         <span>Salary</span>
       </div>
       <EditableText bind:value={salary} editable={editing} />
+    </article>
+    <article class="grid grid-cols-[100px_auto] md:grid-cols-[120px_auto]">
+      <div class="flex items-center gap-x-1.5 text-jt-black">
+        <Icon name="remote" size={20} stroke="currentColor" />
+        <span>Remote</span>
+      </div>
+      <Checkbox bind:checked={remote} disabled={!editing} />
     </article>
   </section>
 

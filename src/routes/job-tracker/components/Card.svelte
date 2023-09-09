@@ -43,7 +43,7 @@
 
     <div class="grid auto-cols-min grid-flow-col items-center gap-x-2">
       {#if remote}
-        <Icon name="remote" size={18} stroke="currentColor" />
+        <Icon name="remote" size={20} stroke="currentColor" />
       {/if}
       {#if salary}
         <Icon name="paid" />
