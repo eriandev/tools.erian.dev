@@ -76,7 +76,7 @@
           remote = false
           jobPostUrl = ''
         }
-      }))
+      })),
   )
   onDestroy(() => unsubStore())
 </script>

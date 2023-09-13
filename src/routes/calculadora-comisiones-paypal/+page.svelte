@@ -20,12 +20,12 @@
     const { sendCommision, sendValue } = getSendValues(
       parseFloat(amount),
       parseFloat(fixedCommision),
-      parseFloat(percentCommision)
+      parseFloat(percentCommision),
     )
     const { recieveCommision, recieveValue } = getRecieveValues(
       parseFloat(amount),
       parseFloat(fixedCommision),
-      parseFloat(percentCommision)
+      parseFloat(percentCommision),
     )
 
     valueToSend = amount ? sendValue.toFixed(2) : ''
