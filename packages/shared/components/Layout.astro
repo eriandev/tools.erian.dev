@@ -1,0 +1,50 @@
+---
+interface Props {
+  title: string
+  class?: string
+  description?: string
+  slug?: string
+  themeColor?: string
+}
+
+const { PUBLIC_URL_ORIGIN: URL_ORIGIN } = import.meta.env
+
+const { title, class: bodyClass, description, slug, themeColor } = Astro.props
+const pagePath = slug ? '/' + slug : ''
+const canonicalUrl = (URL_ORIGIN ?? '') + pagePath
+const faviconPath = pagePath + '/favicon.png'
+const previewUrl = pagePath + '/preview.png'
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+
+    {URL_ORIGIN && <link rel="canonical" href={canonicalUrl} />}
+    {themeColor && <meta name="theme-color" content={themeColor} />}
+    <link rel="apple-touch-icon" href={faviconPath} />
+    <link rel="icon" type="image/png" sizes="32x32" href={faviconPath} />
+
+    <meta property="og:site_name" name="og:site_name" content={title} />
+    <meta property="og:type" name="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:image" content={previewUrl} />
+    {URL_ORIGIN && <meta property="og:url" content={canonicalUrl} />}
+
+    <meta name="twitter:title" content={title} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:creator" content="@eriandev" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={previewUrl} />
+  </head>
+
+  <body class:list={['min-h-screen', bodyClass]}>
+    <slot />
+  </body>
+</html>
