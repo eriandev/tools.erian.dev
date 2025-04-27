@@ -1,0 +1,39 @@
+---
+import MetaTags, { type MetaTagsProps } from '@/components/MetaTags.astro'
+import './_styles.css'
+
+interface Props extends MetaTagsProps {}
+
+const { title, description, slug, class: bodyClass } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <MetaTags {title} {description} {slug} themeColor="#1F212E" />
+
+    <style>
+      @font-face {
+        font-weight: 400;
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-display: swap;
+        src: url('/fonts/ubuntu-400.woff2') format('woff2');
+      }
+
+      @font-face {
+        font-weight: 500;
+        font-family: 'Ubuntu';
+        font-style: normal;
+        font-display: swap;
+        src: url('/fonts/ubuntu-500.woff2') format('woff2');
+      }
+    </style>
+
+    <slot name="head" />
+  </head>
+
+  <body class:list={['font-ubuntu bg-secondary min-h-screen text-black', bodyClass]}>
+    <slot />
+  </body>
+</html>

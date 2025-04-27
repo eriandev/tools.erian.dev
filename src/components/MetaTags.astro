@@ -1,0 +1,39 @@
+---
+import { BASE_PATH } from '@/shared/consts.ts'
+
+export interface MetaTagsProps {
+  title: string
+  slug?: string
+  class?: string
+  description: string
+  themeColor?: string
+}
+
+const { title, description, themeColor, slug } = Astro.props
+const canonicalUrl = typeof slug === 'string' ? BASE_PATH + '/' + slug : BASE_PATH
+const faviconImagePath = BASE_PATH + '/favicon.png'
+const previewImagePath = BASE_PATH + '/preview.png'
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>{title}</title>
+<meta name="description" content={description} />
+
+<link rel="canonical" href={canonicalUrl} />
+<link rel="apple-touch-icon" href={faviconImagePath} />
+<link rel="icon" type="image/png" href={faviconImagePath} />
+{themeColor && <meta name="theme-color" content={themeColor} />}
+
+<meta property="og:title" content={title} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={BASE_PATH} />
+<meta property="og:image" content={previewImagePath} />
+<meta property="og:description" content={description} />
+
+<meta name="twitter:title" content={title} />
+<meta name="twitter:creator" content="@eriandev" />
+<meta name="twitter:image" content={previewImagePath} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:card" content="summary_large_image" />

@@ -1,0 +1,21 @@
+---
+import MetaTags, { type MetaTagsProps } from '@/components/MetaTags.astro'
+import '@/app.css'
+
+interface Props extends MetaTagsProps {}
+
+const { title, description, themeColor, class: bodyClass } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <MetaTags {title} {description} {themeColor} />
+
+    <slot name="head" />
+  </head>
+
+  <body class:list={['min-h-screen', bodyClass]}>
+    <slot />
+  </body>
+</html>
