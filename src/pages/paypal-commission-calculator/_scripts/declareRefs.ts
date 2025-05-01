@@ -1,4 +1,4 @@
-import { $ } from '@/shared/dom.ts'
+import { $ } from '@/shared/utils/dom.ts'
 
 export const $send = $<HTMLInputElement>('#send')
 export const $amount = $<HTMLInputElement>('#amount')

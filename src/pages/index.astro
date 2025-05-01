@@ -1,8 +1,8 @@
 ---
 import Layout from '@/app.astro'
-import { get } from '@/shared/http.ts'
 import Card from '@/components/Card.astro'
-import { isEven } from '@/shared/number.ts'
+import { get } from '@/shared/utils/http.ts'
+import { isEven } from '@/shared/utils/number.ts'
 import { PUBLIC_API_URL } from '@/shared/consts.ts'
 import type { PageApiResponse } from '@/shared/types.ts'
 

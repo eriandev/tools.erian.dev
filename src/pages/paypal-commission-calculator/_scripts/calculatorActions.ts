@@ -1,4 +1,4 @@
-import { parseFloat } from '@/shared/number.ts'
+import { parseFloat } from '@/shared/utils/number.ts'
 
 export function getParsedValues(amount: string, fixed: string | undefined, percent: string | undefined) {
   const parsedAmount = parseFloat(amount)
