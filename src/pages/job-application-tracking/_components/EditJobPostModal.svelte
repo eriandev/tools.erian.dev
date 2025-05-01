@@ -1,8 +1,8 @@
 <script context="module">
   import { get, writable } from 'svelte/store'
 
-  import { DEFAULT_EDIT_CARD_INFO } from '../util/consts'
-  import { getCardInfoById, updateCardInfo, deleteCardById } from '../util/store'
+  import { DEFAULT_EDIT_CARD_INFO } from '../_utils/consts.js'
+  import { getCardInfoById, updateCardInfo, deleteCardById } from '../_utils/store.js'
 
   const state = writable(DEFAULT_EDIT_CARD_INFO)
 
@@ -132,35 +132,35 @@
 
   <section class="grid gap-y-4 pb-14 pt-6 md:gap-x-5 md:gap-y-[18px]">
     <article class="grid grid-cols-[100px_auto] grid-rows-[32px] md:grid-cols-[120px_auto]">
-      <div class="flex items-center gap-x-1.5 text-jt-black">
+      <div class="flex items-center gap-x-1.5 text-theme-black">
         <Icon name="briefcase" size={18} />
         <span>Job Title</span>
       </div>
       <EditableText bind:value={jobTitle} editable={editing} />
     </article>
     <article class="grid grid-cols-[100px_auto] grid-rows-[32px] md:grid-cols-[120px_auto]">
-      <div class="flex items-center gap-x-1.5 text-jt-black">
+      <div class="flex items-center gap-x-1.5 text-theme-black">
         <Icon name="link" />
         <span>URL</span>
       </div>
       <EditableText bind:value={jobPostUrl} type="link" label="Go to job post" editable={editing} />
     </article>
     <article class="grid grid-cols-[100px_auto] grid-rows-[32px] md:grid-cols-[120px_auto]">
-      <div class="flex items-center gap-x-1.5 text-jt-black">
+      <div class="flex items-center gap-x-1.5 text-theme-black">
         <Icon name="paid" />
         <span>Salary</span>
       </div>
       <EditableText bind:value={salary} editable={editing} />
     </article>
     <article class="grid grid-cols-[100px_auto] grid-rows-[32px] md:grid-cols-[120px_auto]">
-      <div class="flex items-center gap-x-1.5 text-jt-black">
+      <div class="flex items-center gap-x-1.5 text-theme-black">
         <Icon name="link" />
         <span>Meet URL</span>
       </div>
       <EditableText bind:value={meetUrl} type="link" label="Go to meeting" editable={editing} />
     </article>
     <article class="grid grid-cols-[100px_auto] grid-rows-[32px] md:grid-cols-[120px_auto]">
-      <div class="flex items-center gap-x-1.5 text-jt-black">
+      <div class="flex items-center gap-x-1.5 text-theme-black">
         <Icon name="remote" size={20} stroke="currentColor" />
         <span>Remote</span>
       </div>

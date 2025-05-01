@@ -21,7 +21,7 @@
   type="text"
   bind:value
   readonly={!editable}
-  class="w-full rounded bg-jt-secondary px-2 py-1 text-jt-gray-400
+  class="w-full rounded bg-theme-secondary px-2 py-1 text-theme-gray-400
     {editable ? '' : ' hidden'}
     {large ? ' text-xl md:text-2xl' : ''}"
   on:input={() => dispatch('value', value)}
@@ -34,13 +34,13 @@
       rel="noopener noreferrer"
       href={value}
       title={value}
-      class="flex w-max items-center gap-x-1 py-1 text-jt-blue underline {large ? ' text-xl md:text-2xl' : ''}"
+      class="flex w-max items-center gap-x-1 py-1 text-theme-blue underline {large ? ' text-xl md:text-2xl' : ''}"
     >
       {label}
       <Icon name="link" size={12} />
     </a>
   {:else if type !== 'link'}
-    <span class="block truncate py-1 text-jt-gray-400 {large ? ' text-xl md:text-2xl' : ''}">
+    <span class="block truncate py-1 text-theme-gray-400 {large ? ' text-xl md:text-2xl' : ''}">
       {value}
     </span>
   {/if}

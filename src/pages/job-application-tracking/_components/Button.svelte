@@ -12,11 +12,11 @@
 
   let extraClass = ''
 
-  const tertiaryBtnClass = 'border-jt-red bg-jt-red'
+  const tertiaryBtnClass = 'border-theme-red bg-theme-red'
   const ghostBtnClass = 'border-transparent bg-transparent'
   const disabledBtnClass = 'cursor-not-allowed opacity-70 active:scale-100'
-  const primaryBtnClass = 'border-jt-primary bg-jt-primary font-medium text-white'
-  const secondaryBtnClass = 'border-jt-gray-200 bg-transparent font-normal text-jt-black'
+  const primaryBtnClass = 'border-theme-primary bg-theme-primary font-medium text-white'
+  const secondaryBtnClass = 'border-theme-gray-200 bg-transparent font-normal text-theme-black'
   const baseBtnClass = 'rounded border px-5 py-3 transition-transform duration-150 ease-in-out active:scale-95'
 </script>
 

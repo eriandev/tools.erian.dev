@@ -24,13 +24,13 @@
       {#if loading}
         <div class="h-5 w-5 animate-pulse rounded-full bg-slate-200" />
       {:else}
-        <div class="grid h-5 w-5 place-items-center rounded-full bg-white text-xs font-medium text-jt-black">
+        <div class="grid h-5 w-5 place-items-center rounded-full bg-white text-xs font-medium text-theme-black">
           {limitedCount}
         </div>
       {/if}
     </div>
     <button
-      class="w-full rounded-lg bg-jt-gray-100 py-2 text-center font-medium text-jt-gray-400 transition-transform duration-150 ease-in-out active:scale-95 disabled:opacity-50 disabled:active:scale-100"
+      class="w-full rounded-lg bg-theme-gray-100 py-2 text-center font-medium text-theme-gray-400 transition-transform duration-150 ease-in-out active:scale-95 disabled:opacity-50 disabled:active:scale-100"
       disabled={loading}
       on:click={() => (!loading ? openNewJobPostModal(title) : null)}
     >

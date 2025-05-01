@@ -1,4 +1,5 @@
 import icon from 'astro-icon'
+import svelte from '@astrojs/svelte'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
 import { iconTyping } from './scripts/integrations.ts'
@@ -7,5 +8,5 @@ import { iconTyping } from './scripts/integrations.ts'
 export default defineConfig({
   build: { assets: 'assets' },
   vite: { plugins: [tailwindcss()] },
-  integrations: [icon(), iconTyping()],
+  integrations: [icon(), svelte(), iconTyping()],
 })

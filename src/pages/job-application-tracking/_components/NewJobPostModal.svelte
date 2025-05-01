@@ -1,7 +1,7 @@
 <script context="module">
   import { writable } from 'svelte/store'
-  import { createNewJobPost } from '../util/store'
-  import { DEFAULT_NEW_CARD_INFO } from '../util/consts'
+  import { createNewJobPost } from '../_utils/store.js'
+  import { DEFAULT_NEW_CARD_INFO } from '../_utils/consts.js'
 
   const state = writable(DEFAULT_NEW_CARD_INFO)
 
@@ -82,7 +82,7 @@
 </script>
 
 <BaseModal show={$state.show} on:close={closeNewJobPostModal}>
-  <h4 class="text-xl capitalize text-jt-gray-400 md:text-2xl">new {$state.step} job</h4>
+  <h4 class="text-xl capitalize text-theme-gray-400 md:text-2xl">new {$state.step} job</h4>
 
   <section class="grid gap-y-4 pb-14 pt-6 md:grid-cols-[repeat(2,minmax(auto,220px))] md:gap-x-5 md:gap-y-[18px]">
     <Input bind:value={jobTitle} icon="briefcase" label="Job Title" />

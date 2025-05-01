@@ -34,7 +34,7 @@
   </div>
 {:else}
   <Button
-    class="flex items-center gap-x-1 border-transparent font-medium text-jt-red"
+    class="flex items-center gap-x-1 border-transparent font-medium text-theme-red"
     on:click={() => confirmHandler(true)}
   >
     <Icon name="trash" size={20} />

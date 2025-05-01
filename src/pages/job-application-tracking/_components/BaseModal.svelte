@@ -48,7 +48,7 @@
   <div
     id="overlay"
     transition:fade={{ duration }}
-    class="fixed top-0 z-40 grid h-screen w-full place-items-center bg-[rgba(0,0,0,0.5)] px-4 text-white"
+    class="fixed inset-0 z-40 grid h-screen w-full place-items-center bg-[rgba(0,0,0,0.5)] px-4 text-white"
     on:click={closeHandler}
   >
     <section
@@ -60,37 +60,10 @@
         name="x"
         size={36}
         role="button"
-        class="absolute right-5 top-5 cursor-pointer text-jt-gray-200"
+        class="absolute right-5 top-5 cursor-pointer text-theme-gray-200"
         on:click={() => closeHandler(null, true)}
       />
       <slot />
     </section>
   </div>
 {/if}
-
-<style>
-  @media (any-pointer: fine) {
-    #modal {
-      scrollbar-width: thin;
-      scrollbar-color: theme('colors.jt.primary') theme('colors.jt.secondary');
-    }
-
-    #modal::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    #modal::-webkit-scrollbar-track {
-      border-radius: 8px;
-      background: theme('colors.jt.secondary');
-    }
-
-    #modal::-webkit-scrollbar-thumb {
-      border-radius: 8px;
-      background: theme('colors.jt.primary');
-    }
-
-    #modal::-webkit-scrollbar-thumb:hover {
-      background: #48a5a9;
-    }
-  }
-</style>

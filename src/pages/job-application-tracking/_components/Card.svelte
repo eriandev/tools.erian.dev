@@ -1,7 +1,7 @@
 <script>
   import { useEditJobPost } from './EditJobPostModal.svelte'
 
-  import { getTimeAgo, getFormattedDate } from '$lib'
+  import { getTimeAgo, getFormattedDate } from '@/shared/utils/time.ts'
   import Icon from './Icon.svelte'
 
   /** @type {string} */
@@ -34,11 +34,11 @@
   on:click={() => openEditJobPostModal(id)}
 >
   <h3 class="line-clamp-1 text-xl capitalize leading-[1.25]">{location}</h3>
-  <p class="mb-2 line-clamp-2 overflow-hidden text-lg leading-[1.2] text-jt-gray-400">{jobTitle}</p>
+  <p class="mb-2 line-clamp-2 overflow-hidden text-lg leading-[1.2] text-theme-gray-400">{jobTitle}</p>
 
-  <footer class="flex justify-between text-jt-gray-300">
+  <footer class="flex justify-between text-theme-gray-300">
     <div class="grid auto-cols-max grid-flow-col gap-x-2">
-      <span title={getFormattedDate(timestamp)} class="max-w-max rounded-full bg-jt-secondary px-2 py-1 text-xs">
+      <span title={getFormattedDate(timestamp)} class="max-w-max rounded-full bg-theme-secondary px-2 py-1 text-xs">
         {getTimeAgo(timestamp)}
       </span>
 
@@ -59,7 +59,7 @@
 
     {#if meetUrl && showMeet}
       <a target="_blank" rel="noopener noreferrer" title={meetUrl} href={meetUrl}>
-        <span class="text-sm text-jt-gray-300 underline">Go to meeting</span>
+        <span class="text-sm text-theme-gray-300 underline">Go to meeting</span>
       </a>
     {/if}
   </footer>

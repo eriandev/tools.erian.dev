@@ -33,7 +33,7 @@ const { title, description, slug, class: bodyClass } = Astro.props
     <slot name="head" />
   </head>
 
-  <body class:list={['font-ubuntu bg-secondary min-h-screen text-black', bodyClass]}>
+  <body class:list={['font-ubuntu bg-theme-secondary min-h-screen text-theme-black', bodyClass]}>
     <slot />
   </body>
 </html>
