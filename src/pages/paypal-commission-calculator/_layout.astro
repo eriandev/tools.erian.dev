@@ -30,7 +30,8 @@ const { title, description, slug, class: bodyClass } = Astro.props
       }
     </style>
 
-    <slot name="head" />
+    <script src="./_scripts/declareRefs.ts"></script>
+    <script src="./_scripts/events.ts"></script>
   </head>
 
   <body class:list={['font-ubuntu min-h-screen text-gray-900 dark:bg-gray-900 dark:text-white', bodyClass]}>

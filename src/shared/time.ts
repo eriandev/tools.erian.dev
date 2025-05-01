@@ -10,11 +10,6 @@ function getTimeValueAndUnit(timestamp: number) {
   return getUnitAndValueDate(secondsElapsed)
 }
 
-export function parseFloat(value: string | number) {
-  const number = typeof value === 'number' ? value.toString() : value
-  return Number.parseFloat(number)
-}
-
 export function getTimeAgo(timestamp: number) {
   const rtf = new Intl.RelativeTimeFormat()
   const { value, unit } = getTimeValueAndUnit(timestamp)
