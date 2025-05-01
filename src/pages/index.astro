@@ -1,13 +1,13 @@
 ---
-import Layout from '@/app.astro'
+import Layout from './_layout.astro'
 import Card from '@/components/Card.astro'
 import { get } from '@/shared/utils/http.ts'
+import { API_URL } from '@/shared/consts.ts'
 import { isEven } from '@/shared/utils/number.ts'
-import { PUBLIC_API_URL } from '@/shared/consts.ts'
 import type { PageApiResponse } from '@/shared/types.ts'
 
+const { title, subtitle, description, sites } = await get<PageApiResponse>(API_URL)
 const centerCardClass = 'w-full md:col-span-2 md:max-w-[31rem] md:justify-self-center'
-const { title, subtitle, description, sites } = await get<PageApiResponse>(PUBLIC_API_URL)
 ---
 
 <Layout {title} {description} class="grid grid-rows-2">

@@ -1,0 +1,21 @@
+---
+import BaseLayout from '@/shared/layouts/BaseLayout.astro'
+import type { BodyProps, HTMLProps } from '@/shared/layouts/types.ts'
+import './_styles.css'
+
+interface Props {
+  title: string
+  slug?: string
+  class?: string
+  description: string
+  themeColor?: string
+}
+
+const { title, description, themeColor, class: bodyClass } = Astro.props
+const html: HTMLProps = { lang: 'en' }
+const body: BodyProps = { 'class:list': ['min-h-screen', bodyClass] }
+---
+
+<BaseLayout {html} {body} {title} {description} {themeColor}>
+  <slot />
+</BaseLayout>

@@ -1,2 +1,2 @@
-export const BASE_PATH = import.meta.env.BASE_PATH
-export const PUBLIC_API_URL = import.meta.env.PUBLIC_API_URL
+export const API_URL = import.meta.env.PUBLIC_API_URL
+export const BASE_URL = import.meta.env.PUBLIC_BASE_URL

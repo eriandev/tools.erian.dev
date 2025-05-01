@@ -7,7 +7,7 @@ import {
   $fixedCommision,
   $percentCommision,
   $receiveComission,
-} from '../_scripts/declareRefs.ts'
+} from './declareRefs.ts'
 
 window.isOnlyNumbers = isOnlyNumbers
 
