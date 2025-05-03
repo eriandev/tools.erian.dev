@@ -1,16 +1,34 @@
 ---
 import Layout from './_layout.astro'
-import Board from './_components/Board.svelte'
+import Column from './_components/Column.astro'
+import CardSkeleton from './_components/CardSkeleton.astro'
+import { JOB_APPLICATION_STATUS } from './_utils/consts.ts'
+import CardsContainer from './_components/CardsContainer.svelte'
 
 const slug = 'job-application-tracking'
 const title = 'Job Application Tracking'
 const description = 'App to help users organize, track and save their job applications.'
 ---
 
-<Layout {title} {slug} {description}>
-  <h1 class="px-5 pt-10 pb-5 text-[2rem] md:px-8">{title}</h1>
+<script>
+  import { useBoard } from './_utils/store.svelte'
+  useBoard().initBoardInfo()
+</script>
 
-  <main class="flex gap-x-8 overflow-x-auto px-5 md:px-8">
-    <Board client:load />
+<Layout {title} {slug} {description}>
+  <main>
+    <h1 class="px-5 pt-10 pb-5 text-[2rem] md:px-8">{title}</h1>
+
+    <section class="flex gap-x-8 overflow-x-auto px-5 md:px-8">
+      {
+        JOB_APPLICATION_STATUS.map((status) => (
+          <Column headline={status}>
+            <CardsContainer {status} client:load>
+              <CardSkeleton />
+            </CardsContainer>
+          </Column>
+        ))
+      }
+    </section>
   </main>
 </Layout>
