@@ -5,6 +5,7 @@ import {
   modalInfo,
   showModal,
   isLoading,
+  boardCount,
   BOARD_INFO_KEY,
   DEFAULT_BOARD_INFO,
   DEFAULT_MODAL_INFO,
@@ -48,7 +49,11 @@ export function useBoard() {
     persistBoardInfo()
   }
 
-  const updateColumnCards = (status: JobApplicationStatus, updatedCards: JobApplicationInfo[], { persist = false } = {}) => {
+  const updateColumnCards = (
+    status: JobApplicationStatus,
+    updatedCards: JobApplicationInfo[],
+    { persist = false } = {},
+  ) => {
     const newBoardInfo = get(boardInfo)
     newBoardInfo[status] = updatedCards
     boardInfo.set(newBoardInfo)
@@ -63,6 +68,7 @@ export function useBoard() {
   return {
     boardInfo,
     isLoading,
+    boardCount,
     initBoardInfo,
     createJobPost,
     deleteJobPost,

@@ -1,4 +1,4 @@
-import { writable } from 'svelte/store'
+import { derived, writable } from 'svelte/store'
 import type { BoardInfo, ModalInfo } from './types.ts'
 
 export const flipDurationMs = 200
@@ -20,3 +20,8 @@ export const isLoading = writable(true)
 export const showModal = writable(false)
 export const boardInfo = writable(DEFAULT_BOARD_INFO)
 export const modalInfo = writable(DEFAULT_MODAL_INFO)
+export const boardCount = derived(boardInfo, ({ wishlist, applied, interview }) => ({
+  wishlist: wishlist.length,
+  applied: applied.length,
+  interview: interview.length,
+}))

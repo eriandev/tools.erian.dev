@@ -2,6 +2,7 @@
 import { BOARD_INFO_KEY } from '../_utils/consts.ts'
 import Icon from '@/shared/components/Icon.astro'
 import CreateButton from './CreateButton.svelte'
+import ColumnCount from './ColumnCount.svelte'
 import type { ColumnProps } from './types.ts'
 
 interface Props extends ColumnProps {}
@@ -15,8 +16,9 @@ const iconName = `${BOARD_INFO_KEY}/${headline}` as const
     <div class="grid grid-cols-[fit-content(100%)_auto_fit-content(100%)] items-center gap-x-2">
       <Icon name={iconName} size={20} />
       <h2 class="text-xl capitalize">{headline}</h2>
-      <div class="size-5 animate-pulse rounded-full bg-slate-300"></div>
-      <!-- <div class="text-jat-black grid size-5 place-items-center rounded-full bg-white text-xs font-medium">0</div> -->
+      <ColumnCount client:load status={headline}>
+        <div class="size-5 animate-pulse rounded-full bg-slate-200"></div>
+      </ColumnCount>
     </div>
 
     <CreateButton client:load status={headline} />

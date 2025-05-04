@@ -35,6 +35,11 @@ export interface ColumnProps {
   headline: JobApplicationStatus
 }
 
+export interface ColumnCountProps {
+  status: JobApplicationStatus
+  children?: Snippet
+}
+
 export interface CreateButtonProps {
   status: JobApplicationStatus
 }
