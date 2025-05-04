@@ -18,18 +18,18 @@
     "pnpm": ">=10"
   },
   "dependencies": {
-    "astro": "5.7.7"
+    "astro": "5.7.10"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.4",
     "@astrojs/svelte": "7.0.13",
-    "@tailwindcss/vite": "4.1.4",
+    "@tailwindcss/vite": "4.1.5",
     "@types/node": "22.15.3",
     "@typescript-eslint/eslint-plugin": "8.31.1",
     "@typescript-eslint/parser": "8.31.1",
     "@usesvelte/inline-svg": "0.5.0",
     "astro-icon": "1.1.5",
-    "eslint": "9.25.1",
+    "eslint": "9.26.0",
     "eslint-config-love": "119.0.0",
     "eslint-plugin-astro": "1.3.1",
     "prettier": "3.5.3",
@@ -38,8 +38,8 @@
     "sharp": "0.34.1",
     "svelte": "5.28.2",
     "svelte-dnd-action": "0.9.61",
-    "tailwindcss": "4.1.4",
+    "tailwindcss": "4.1.5",
     "typescript": "5.8.3",
-    "vite": "6.3.3"
+    "vite": "6.3.4"
   }
 }
