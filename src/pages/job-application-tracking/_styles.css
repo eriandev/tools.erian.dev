@@ -1,0 +1,80 @@
+@import '@/shared/styles/tailwind';
+
+@theme {
+  --font-ubuntu: Ubuntu, sans-serif;
+
+  --color-jat-primary: #63cbcf;
+  --color-jat-secondary: #ecf6f6;
+
+  --color-jat-red: #d34836;
+  --color-jat-blue: #1a91f0;
+  --color-jat-black: #2b2b2b;
+
+  --color-jat-gray-400: #828ba2;
+  --color-jat-gray-300: #9fa6bb;
+  --color-jat-gray-200: #bec4d5;
+  --color-jat-gray-100: #e7eaf4;
+}
+
+@layer components {
+  .btn {
+    @apply cursor-pointer rounded border px-5 py-3 transition-transform duration-150 ease-in-out select-none active:scale-95;
+
+    &:disabled {
+      @apply cursor-not-allowed opacity-70 active:scale-100;
+    }
+
+    &.primary {
+      @apply border-jat-primary bg-jat-primary font-medium text-white;
+    }
+
+    &.secondary {
+      @apply border-jat-gray-200 text-jat-black bg-transparent font-normal;
+    }
+
+    &.tertiary {
+      @apply border-jat-red bg-jat-red;
+    }
+
+    &.ghost {
+      @apply border-transparent bg-transparent;
+    }
+  }
+
+  .checkbox-label {
+    @apply bg-jat-gray-200 relative block w-10 cursor-pointer overflow-hidden rounded pb-8 outline-0 transition-[left,right,background-color] duration-200 ease-in-out select-none [-webkit-backface-visibility:hidden] [backface-visibility:hidden];
+
+    &::after {
+      @apply absolute left-full block h-full w-full text-center leading-8 font-bold text-white transition-[left,right,background-color] duration-200 ease-in-out content-[attr(data-on)] [text-shadow:0_1px_0_rgba(0,0,0,0.4)];
+    }
+
+    &::before {
+      @apply absolute left-0 block h-full w-full text-center leading-8 font-bold text-white transition-[left,right,background-color] duration-200 ease-in-out content-[attr(data-off)] [text-shadow:0_1px_0_rgba(0,0,0,0.4)];
+    }
+  }
+}
+
+@media (any-pointer: fine) {
+  #modal {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-jat-primary) var(--color-jat-secondary);
+  }
+
+  #modal::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  #modal::-webkit-scrollbar-track {
+    border-radius: 8px;
+    background: var(--color-jat-secondary);
+  }
+
+  #modal::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: var(--color-jat-primary);
+  }
+
+  #modal::-webkit-scrollbar-thumb:hover {
+    background: #48a5a9;
+  }
+}

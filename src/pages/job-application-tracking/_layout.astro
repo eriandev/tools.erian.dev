@@ -1,0 +1,38 @@
+---
+import BaseLayout from '@/shared/layouts/BaseLayout.astro'
+import type { BodyProps, HTMLProps } from '@/shared/layouts/types.ts'
+import './_styles.css'
+
+interface Props {
+  title: string
+  slug?: string
+  class?: string
+  description: string
+  themeColor?: string
+}
+
+const { title, description, themeColor, slug, class: bodyClass } = Astro.props
+const html: HTMLProps = { lang: 'en' }
+const body: BodyProps = { 'class:list': ['font-ubuntu bg-jat-secondary text-jat-black min-h-screen', bodyClass] }
+---
+
+<BaseLayout {html} {body} {title} {description} {slug} {themeColor}>
+  <style is:inline slot="styles">
+    @font-face {
+      font-weight: 400;
+      font-family: 'Ubuntu';
+      font-style: normal;
+      font-display: swap;
+      src: url('/fonts/ubuntu-400.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-weight: 500;
+      font-family: 'Ubuntu';
+      font-style: normal;
+      font-display: swap;
+      src: url('/fonts/ubuntu-500.woff2') format('woff2');
+    }
+  </style>
+  <slot />
+</BaseLayout>

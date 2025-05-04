@@ -1,0 +1,13 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+interface Props extends HTMLAttributes<'h1'> {
+  as?: 'h1' | 'h2' | 'h3'
+}
+
+const { as: Tag = 'h1', class: extraClass, ...restProps } = Astro.props
+---
+
+<Tag class:list={['inline-block text-4xl font-extrabold tracking-wide', extraClass]} {...restProps}>
+  <slot />
+</Tag>

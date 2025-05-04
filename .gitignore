@@ -1,7 +1,20 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# build output
+dist/
+
+# generated types
+.astro/
+icon.d.ts
 
 # profiling files
 chrome-profiler-events*.json
@@ -22,24 +35,12 @@ speed-measure-plugin*.json
 !.vscode/launch.json
 !.vscode/settings.json
 !.vscode/extensions.json
-!.vscode/css_custom_data.json
-*.code-workspace
-
-# Svelte-kit
-/build
-/package
-/.svelte-kit
-/.vercel_build_output
+!.vscode/css_custom_tailwind.json
 
 # misc
 .env
 .env.*
 !.env.example
-/connect.lock
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
 coverage/
 /typings
 .vercel/

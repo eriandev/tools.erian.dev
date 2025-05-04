@@ -1,0 +1,15 @@
+@import '@/shared/styles/tailwind';
+
+@utility input-appearance-none {
+  &::-webkit-outer-spin-button {
+    appearance: none;
+  }
+  &::-webkit-inner-spin-button {
+    appearance: none;
+  }
+  appearance: textfield;
+}
+
+@theme {
+  --font-ubuntu: Ubuntu, sans-serif;
+}
