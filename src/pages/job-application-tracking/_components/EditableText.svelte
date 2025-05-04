@@ -2,9 +2,14 @@
   import Icon from '@/shared/components/Icon.svelte'
   import type { EditableTextProps } from './types'
 
-  interface Props extends EditableTextProps {}
-
-  let { type = 'text', editable = false, label = '', large = false, class: extraClass, value = $bindable() }: Props = $props()
+  let {
+    label = '',
+    type = 'text',
+    large = false,
+    editable = false,
+    class: extraClass,
+    value = $bindable()
+  }: EditableTextProps = $props()
 </script>
 
 <input

@@ -3,8 +3,6 @@
   import { getTimeAgo, getFormattedDate } from '@/shared/utils/time'
   import type { CardProps } from './types'
 
-  interface Props extends CardProps {}
-
   const {
     id,
     salary,
@@ -15,7 +13,7 @@
     jobPostUrl,
     remote = false,
     showMeet = false,
-  }: Props = $props()
+  }: CardProps = $props()
 </script>
 
 <article

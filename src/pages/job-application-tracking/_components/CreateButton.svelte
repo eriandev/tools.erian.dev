@@ -2,9 +2,7 @@
   import { useModal } from '../_utils/store'
   import type { CreateButtonProps } from './types'
 
-  interface Props extends CreateButtonProps {}
-
-  const { status }: Props = $props()
+  const { status }: CreateButtonProps = $props()
   const { openModal } = useModal()
 
   function handleClick () {

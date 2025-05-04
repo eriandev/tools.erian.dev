@@ -5,11 +5,9 @@
   import Icon from '@/shared/components/Icon.svelte'
   import type { BaseModalProps } from './types'
 
-  interface Props extends BaseModalProps {}
-
   const { closeModal } = useModal()
   let modal = $state<HTMLElement | null>(null)
-  const { show, duration = 400, y = 200, options = {}, children }: Props = $props()
+  const { show, duration = 400, y = 200, options = {}, children }: BaseModalProps = $props()
 
   function closeMouseHandler(event: MouseEvent) {
     const { overlayClick = false } = options

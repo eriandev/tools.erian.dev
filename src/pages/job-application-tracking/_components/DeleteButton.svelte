@@ -3,10 +3,8 @@
   import Icon from '@/shared/components/Icon.svelte'
   import type { DeleteButtonProps } from './types'
 
-  interface Props extends DeleteButtonProps {}
-
   let confirming = $state(false)
-  let { onConfirm, onDelete }: Props = $props()
+  let { onConfirm, onDelete }: DeleteButtonProps = $props()
 
   function confirmHandler(value: boolean) {
     confirming = value

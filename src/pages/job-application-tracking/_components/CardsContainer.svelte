@@ -6,12 +6,10 @@
   import { flipDurationMs } from '../_utils/consts'
   import { useBoard, useModal } from '../_utils/store'
   import type { JobApplicationInfo, JobApplicationStatus } from '../_utils/types'
-  import type { CardsContainer } from './types'
-
-  interface Props extends CardsContainer {}
+  import type { CardsContainerProps } from './types'
 
   let items: JobApplicationInfo[] = $state([])
-  const { status, children }: Props = $props()
+  const { status, children }: CardsContainerProps = $props()
   const { boardInfo, isLoading, updateColumnCards } = useBoard()
   const { openModal } = useModal()
 

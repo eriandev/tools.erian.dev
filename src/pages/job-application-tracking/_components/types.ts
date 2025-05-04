@@ -20,7 +20,7 @@ export interface CardProps extends JobApplicationInfo {
   showMeet?: boolean
 }
 
-export interface CardsContainer {
+export interface CardsContainerProps {
   status: JobApplicationStatus
   children?: Snippet
 }

@@ -2,9 +2,7 @@
   import Icon from '@/shared/components/Icon.svelte'
   import type { InputProps } from './types'
 
-  interface Props extends InputProps {}
-
-  let { id, icon, label, value = $bindable() }: Props = $props()
+  let { id, icon, label, value = $bindable() }: InputProps = $props()
 </script>
 
 <div class="flex flex-col gap-y-[6px] text-jat-gray-400">
