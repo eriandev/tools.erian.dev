@@ -1,6 +1,7 @@
 ---
 import Layout from './_layout.astro'
 import Column from './_components/Column.astro'
+import EditModal from './_components/EditModal.svelte'
 import CreateModal from './_components/CreateModal.svelte'
 import CardSkeleton from './_components/CardSkeleton.astro'
 import { JOB_APPLICATION_STATUS } from './_utils/consts.ts'
@@ -33,5 +34,6 @@ const description = 'App to help users organize, track and save their job applic
     </section>
   </main>
 
+  <EditModal client:load />
   <CreateModal client:load />
 </Layout>

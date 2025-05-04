@@ -47,7 +47,7 @@
     >
       <button
         aria-label="Close modal"
-        class="absolute right-5 top-5 cursor-pointer text-jat-gray-200 size-10"
+        class="absolute right-5 top-5 cursor-pointer text-jat-gray-200 size-10 lg:top-6"
         onclick={closeModal}
       >
         <Icon name="jat/x" size={40} class="relative" />

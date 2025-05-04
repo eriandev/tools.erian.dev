@@ -27,7 +27,7 @@ export interface CardsContainer {
 
 export interface CheckboxProps extends HTMLInputAttributes {
   id: string
-  icon: IconName
+  icon?: IconName
   label?: string
 }
 
@@ -37,6 +37,21 @@ export interface ColumnProps {
 
 export interface CreateButtonProps {
   status: JobApplicationStatus
+}
+
+export interface DeleteButtonProps {
+  confirming?: boolean
+  onDelete: () => void
+  onConfirm: (state: boolean) => void
+}
+
+export interface EditableTextProps {
+  value?: string
+  label?: string
+  class?: string
+  large?: boolean
+  editable?: boolean
+  type?: 'link' | 'text'
 }
 
 export interface InputProps {

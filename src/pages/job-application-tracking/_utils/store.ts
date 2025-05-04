@@ -32,6 +32,22 @@ export function useBoard() {
     persistBoardInfo()
   }
 
+  const updateCardInfo = (status: JobApplicationStatus, jobPostId: string, newJobApp: Partial<JobApplicationInfo>) => {
+    const actualBoardInfo = get(boardInfo)
+    actualBoardInfo[status] = actualBoardInfo[status].map((info) =>
+      info.id === jobPostId ? { ...info, ...newJobApp } : info,
+    )
+    boardInfo.set(actualBoardInfo)
+    persistBoardInfo()
+  }
+
+  const deleteJobPost = (status: JobApplicationStatus, jobPostId: string) => {
+    const actualBoardInfo = get(boardInfo)
+    actualBoardInfo[status] = actualBoardInfo[status].filter(({ id }) => id !== jobPostId)
+    boardInfo.set(actualBoardInfo)
+    persistBoardInfo()
+  }
+
   const updateColumnCards = (status: JobApplicationStatus, updatedCards: JobApplicationInfo[]) => {
     const newBoardInfo = get(boardInfo)
     newBoardInfo[status] = updatedCards
@@ -49,14 +65,16 @@ export function useBoard() {
     isLoading,
     initBoardInfo,
     createJobPost,
+    deleteJobPost,
+    updateCardInfo,
     updateColumnCards,
   }
 }
 
 export function useModal() {
   const openModal = ({ action, status, jobApplication }: ModalInfo) => {
-    showModal.set(true)
     modalInfo.set({ status, action, jobApplication })
+    showModal.set(true)
   }
 
   const closeModal = () => {

@@ -3,8 +3,8 @@
   import { dndzone } from 'svelte-dnd-action'
 
   import Card from './Card.svelte'
-  import { useBoard } from '../_utils/store'
   import { flipDurationMs } from '../_utils/consts'
+  import { useBoard, useModal } from '../_utils/store'
   import type { JobApplicationInfo, JobApplicationStatus } from '../_utils/types'
   import type { CardsContainer } from './types'
 
@@ -13,6 +13,7 @@
   let items: JobApplicationInfo[] = $state([])
   const { status, children }: Props = $props()
   const { boardInfo, isLoading, updateColumnCards } = useBoard()
+  const { openModal } = useModal()
 
   function handleDndConsiderCards({ detail }: CustomEvent, status: JobApplicationStatus) {
     updateColumnCards(status, detail.items)
@@ -38,10 +39,13 @@
     onfinalize={(event) => handleDndFinalizeCards(event, status)}
     class="flex min-h-[400px] flex-col gap-y-2"
   >
-    {#each $boardInfo[status] as item (item.id)}
-      <article animate:flip={{ duration: flipDurationMs }}>
-        <Card {...item} showMeet={status === 'interview'} />
-      </article>
+    {#each $boardInfo[status] as jobApplication (jobApplication.id)}
+      <button
+        animate:flip={{ duration: flipDurationMs }}
+        onclick={() => openModal({ action: 'edit', status, jobApplication })}
+      >
+        <Card {...jobApplication} showMeet={status === 'interview'} />
+      </button>
     {/each}
   </div>
 {/if}

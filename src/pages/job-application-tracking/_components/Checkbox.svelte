@@ -13,7 +13,9 @@
 <div class={['flex w-max flex-col gap-y-[6px] text-jat-gray-400', { 'opacity-70': disabled }]}>
   {#if label}
     <label for={id} class="flex items-center gap-x-[6px]">
-      <Icon name={icon} size={20} stroke="currentColor" />
+      {#if icon}
+        <Icon name={icon} size={20} stroke="currentColor" />
+      {/if}
       <span>{label}</span>
     </label>
   {/if}

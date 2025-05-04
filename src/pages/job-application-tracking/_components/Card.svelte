@@ -1,6 +1,6 @@
 <script lang="ts">
   import Icon from '@/shared/components/Icon.svelte'
-  import { getTimeAgo, getFormattedDate } from '@/shared/utils/time.ts'
+  import { getTimeAgo, getFormattedDate } from '@/shared/utils/time'
   import type { CardProps } from './types'
 
   interface Props extends CardProps {}
@@ -18,11 +18,9 @@
   }: Props = $props()
 </script>
 
-<div
+<article
   {id}
-  tabindex="0"
-  role="button"
-  class="flex cursor-pointer flex-col gap-y-1 rounded-lg bg-white p-4 shadow-sm transition-shadow duration-200 ease-in-out outline-none hover:shadow-md"
+  class="flex text-left cursor-pointer flex-col gap-y-1 rounded-lg bg-white p-4 shadow-sm transition-shadow duration-200 ease-in-out outline-none hover:shadow-md"
 >
   <h3 class="line-clamp-1 text-xl leading-[1.25] capitalize">{location}</h3>
   <p class="text-jat-gray-400 mb-2 line-clamp-2 overflow-hidden text-lg leading-[1.2]">{jobTitle}</p>
@@ -52,4 +50,4 @@
       </a>
     {/if}
   </footer>
-</div>
+</article>
