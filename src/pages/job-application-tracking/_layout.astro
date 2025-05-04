@@ -13,7 +13,7 @@ interface Props {
 
 const { title, description, themeColor, slug, class: bodyClass } = Astro.props
 const html: HTMLProps = { lang: 'en' }
-const body: BodyProps = { 'class:list': ['font-ubuntu bg-theme-secondary text-theme-black min-h-screen', bodyClass] }
+const body: BodyProps = { 'class:list': ['font-ubuntu bg-jat-secondary text-jat-black min-h-screen', bodyClass] }
 ---
 
 <BaseLayout {html} {body} {title} {description} {slug} {themeColor}>

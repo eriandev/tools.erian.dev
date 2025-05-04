@@ -1,20 +1,19 @@
 <script lang="ts">
+  import Icon from '@/shared/components/Icon.svelte'
   import { getTimeAgo, getFormattedDate } from '@/shared/utils/time.ts'
-  import type { JobApplicationInfo } from '../_utils/types'
+  import type { CardProps } from './types'
 
-  interface Props extends JobApplicationInfo {
-    showMeet?: boolean
-  }
+  interface Props extends CardProps {}
 
   const {
     id,
+    salary,
+    meetUrl,
     jobTitle,
     location,
     timeStamp,
     jobPostUrl,
-    meetUrl,
     remote = false,
-    salary,
     showMeet = false,
   }: Props = $props()
 </script>
@@ -26,73 +25,30 @@
   class="flex cursor-pointer flex-col gap-y-1 rounded-lg bg-white p-4 shadow-sm transition-shadow duration-200 ease-in-out outline-none hover:shadow-md"
 >
   <h3 class="line-clamp-1 text-xl leading-[1.25] capitalize">{location}</h3>
-  <p class="text-theme-gray-400 mb-2 line-clamp-2 overflow-hidden text-lg leading-[1.2]">{jobTitle}</p>
+  <p class="text-jat-gray-400 mb-2 line-clamp-2 overflow-hidden text-lg leading-[1.2]">{jobTitle}</p>
 
-  <footer class="text-theme-gray-300 flex justify-between">
+  <footer class="text-jat-gray-300 flex justify-between">
     <div class="grid auto-cols-max grid-flow-col gap-x-2">
-      <span title={getFormattedDate(timeStamp)} class="bg-theme-secondary max-w-max rounded-full px-2 py-1 text-xs">
+      <span title={getFormattedDate(timeStamp)} class="bg-jat-secondary max-w-max rounded-full px-2 py-1 text-xs">
         {getTimeAgo(timeStamp)}
       </span>
 
       <div class="grid auto-cols-min grid-flow-col items-center gap-x-2">
         {#if remote}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            data-name="remote"
-            width="20"
-            height="20"
-            stroke="currentColor"
-            fill="none"
-          >
-            <path
-              stroke-width="1"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M6.115 5.19l.319 1.913A6 6 0 008.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 002.288-4.042 1.087 1.087 0 00-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 01-.98-.314l-.295-.295a1.125 1.125 0 010-1.591l.13-.132a1.125 1.125 0 011.3-.21l.603.302a.809.809 0 001.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 001.528-1.732l.146-.292M6.115 5.19A9 9 0 1017.18 4.64M6.115 5.19A8.965 8.965 0 0112 3c1.929 0 3.716.607 5.18 1.64"
-            />
-          </svg>
+          <Icon name="jat/remote" size={20} />
         {/if}
         {#if salary}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            data-name="paid"
-            width="16"
-            height="16"
-            fill="none"
-          >
-            <path
-              fill="currentColor"
-              d="M18.48 12C17.641 11.2968 16.5744 10.9235 15.48 10.95H8.44496C8.12421 10.9581 7.80511 10.9014 7.50679 10.7833C7.20846 10.6652 6.93703 10.4881 6.70876 10.2626C6.48048 10.0371 6.30005 9.76792 6.17826 9.47107C6.05647 9.17423 5.99582 8.85586 5.99996 8.53503C5.99214 8.41015 5.99214 8.2849 5.99996 8.16003C6.09455 7.58673 6.39516 7.06769 6.84535 6.70035C7.29554 6.33302 7.86435 6.14266 8.44496 6.16503H15.375C15.9403 6.16453 16.4873 6.36484 16.9187 6.73023C17.35 7.09562 17.6375 7.60234 17.73 8.16003H19.98C19.8858 7.00343 19.3598 5.92463 18.5066 5.13811C17.6533 4.3516 16.5354 3.91497 15.375 3.91503H13.005V0.465027H11.13V3.91503H8.44496C7.28454 3.91497 6.16658 4.3516 5.31336 5.13811C4.46014 5.92463 3.93415 7.00343 3.83996 8.16003C3.83248 8.28491 3.83248 8.41014 3.83996 8.53503C3.83996 9.13976 3.95907 9.73858 4.1905 10.2973C4.42192 10.856 4.76112 11.3636 5.18874 11.7913C6.05234 12.6549 7.22364 13.14 8.44496 13.14H15.555C15.8732 13.132 16.1898 13.1878 16.4861 13.3041C16.7824 13.4203 17.0525 13.5947 17.2803 13.817C17.5082 14.0393 17.6893 14.3049 17.8129 14.5983C17.9364 14.8916 18.0001 15.2067 18 15.525C18.0155 15.6947 18.0155 15.8654 18 16.035C17.8809 16.5628 17.5859 17.0344 17.1634 17.3724C16.7409 17.7104 16.216 17.8947 15.675 17.895H8.62496C8.08391 17.8947 7.55906 17.7104 7.13657 17.3724C6.71408 17.0344 6.41906 16.5628 6.29996 16.035H4.03496C4.16387 17.1621 4.70292 18.2023 5.54939 18.9575C6.39586 19.7126 7.49058 20.13 8.62496 20.13H11.13V23.535H13.005V20.13H15.555C16.6893 20.13 17.7841 19.7126 18.6305 18.9575C19.477 18.2023 20.0161 17.1621 20.145 16.035V15.525C20.1432 14.8513 19.993 14.1862 19.7053 13.577C19.4175 12.9678 18.9992 12.4294 18.48 12Z"
-            />
-          </svg>
+          <Icon name="jat/paid" size={16} />
         {/if}
         {#if jobPostUrl}
-          <a aria-label="Link" target="_blank" rel="noopener noreferrer" title={jobPostUrl} href={jobPostUrl}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              data-name="link"
-              width="16"
-              height="16"
-              fill="none"
-            >
-              <path
-                fill="currentColor"
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M21.649 2.35886C19.2904 8.9953e-05 15.466 8.9953e-05 13.1071 2.35886L9.56352 5.9025C9.16184 6.30419 9.16184 6.95544 9.56352 7.35712C9.96519 7.75881 10.6165 7.75881 11.0181 7.35712L14.5618 3.81348C16.1172 2.25806 18.6391 2.25806 20.1945 3.81348C21.7498 5.36891 21.7498 7.89072 20.1945 9.44615L16.6509 12.9898C16.249 13.3915 16.249 14.0427 16.6509 14.4444C17.0525 14.846 17.7038 14.846 18.1054 14.4444L21.649 10.9008C24.0079 8.54198 24.0079 4.71765 21.649 2.35886ZM1.96916 22.0376C-0.389624 19.6789 -0.389624 15.8545 1.96916 13.4959L5.5128 9.95217C5.91447 9.5505 6.56573 9.5505 6.96742 9.95217C7.3691 10.3539 7.3691 11.0051 6.96742 11.4068L3.42377 14.9504C1.86836 16.5058 1.86836 19.0277 3.42377 20.5831C4.97919 22.1384 7.50103 22.1384 9.05643 20.5831L12.6 17.0395C13.0017 16.6378 13.6529 16.6378 14.0548 17.0395C14.4564 17.4411 14.4564 18.0924 14.0548 18.494L10.5111 22.0376C8.15227 24.3965 4.32794 24.3965 1.96916 22.0376ZM7.03198 15.5208C6.63029 15.9224 6.63029 16.5737 7.03198 16.9753C7.43366 17.377 8.08491 17.377 8.48661 16.9753L16.5864 8.87561C16.9881 8.47392 16.9881 7.82268 16.5864 7.42099C16.1846 7.01932 15.5333 7.01932 15.1317 7.42099L7.03198 15.5208Z"
-              />
-            </svg>
-          </a>
+          <Icon name="jat/link" size={16} />
         {/if}
       </div>
     </div>
 
     {#if meetUrl && showMeet}
       <a target="_blank" rel="noopener noreferrer" title={meetUrl} href={meetUrl}>
-        <span class="text-theme-gray-300 text-sm underline">Go to meeting</span>
+        <span class="text-jat-gray-300 text-sm underline">Go to meeting</span>
       </a>
     {/if}
   </footer>

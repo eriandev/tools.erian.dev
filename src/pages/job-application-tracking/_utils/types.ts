@@ -1,9 +1,8 @@
 import type { JOB_APPLICATION_STATUS } from './consts.ts'
 
+export type ModalAction = 'create' | 'edit'
 export type JobApplicationStatus = (typeof JOB_APPLICATION_STATUS)[number]
-
 export type BoardInfo = Record<JobApplicationStatus, JobApplicationInfo[]>
-
 export interface JobApplicationInfo {
   id: string
   location: string
@@ -15,12 +14,8 @@ export interface JobApplicationInfo {
   jobPostUrl?: string
 }
 
-export interface NewCardInfo {
-  show: boolean
-  step: JobApplicationStatus
-}
-
-export interface EditCardInfo {
-  show?: boolean
-  info?: Partial<JobApplicationInfo>
+export interface ModalInfo {
+  action: ModalAction
+  status: JobApplicationStatus
+  jobApplication?: JobApplicationInfo
 }

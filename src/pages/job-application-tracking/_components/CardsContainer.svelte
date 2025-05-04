@@ -1,21 +1,18 @@
 <script lang="ts">
   import { flip } from 'svelte/animate'
   import { dndzone } from 'svelte-dnd-action'
-  import type { Snippet } from 'svelte'
 
   import Card from './Card.svelte'
-  import { useBoard } from '../_utils/store.svelte'
+  import { useBoard } from '../_utils/store'
   import { flipDurationMs } from '../_utils/consts'
   import type { JobApplicationInfo, JobApplicationStatus } from '../_utils/types'
+  import type { CardsContainer } from './types'
 
-  interface Props {
-    status: JobApplicationStatus
-    children?: Snippet
-  }
+  interface Props extends CardsContainer {}
 
   let items: JobApplicationInfo[] = $state([])
   const { status, children }: Props = $props()
-  const { boardInfo, isBoardLoading, updateColumnCards } = useBoard()
+  const { boardInfo, isLoading, updateColumnCards } = useBoard()
 
   function handleDndConsiderCards({ detail }: CustomEvent, status: JobApplicationStatus) {
     updateColumnCards(status, detail.items)
@@ -26,11 +23,11 @@
   }
 
   $effect(() => {
-    items = boardInfo[status]
+    items = $boardInfo[status]
   })
 </script>
 
-{#if isBoardLoading}
+{#if $isLoading}
   <div class="flex min-h-[400px] flex-col gap-y-2">
     {@render children?.()}
   </div>
@@ -41,7 +38,7 @@
     onfinalize={(event) => handleDndFinalizeCards(event, status)}
     class="flex min-h-[400px] flex-col gap-y-2"
   >
-    {#each boardInfo[status] as item (item.id)}
+    {#each $boardInfo[status] as item (item.id)}
       <article animate:flip={{ duration: flipDurationMs }}>
         <Card {...item} showMeet={status === 'interview'} />
       </article>

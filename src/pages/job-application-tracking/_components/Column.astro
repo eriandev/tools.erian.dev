@@ -1,11 +1,10 @@
 ---
+import { BOARD_INFO_KEY } from '../_utils/consts.ts'
 import Icon from '@/shared/components/Icon.astro'
-import { BOARD_INFO_KEY } from '../_utils/consts'
-import type { JobApplicationStatus } from '../_utils/types'
+import CreateButton from './CreateButton.svelte'
+import type { ColumnProps } from './types.ts'
 
-interface Props {
-  headline: JobApplicationStatus
-}
+interface Props extends ColumnProps {}
 
 const { headline } = Astro.props
 const iconName = `${BOARD_INFO_KEY}/${headline}` as const
@@ -16,14 +15,11 @@ const iconName = `${BOARD_INFO_KEY}/${headline}` as const
     <div class="grid grid-cols-[fit-content(100%)_auto_fit-content(100%)] items-center gap-x-2">
       <Icon name={iconName} size={20} />
       <h2 class="text-xl capitalize">{headline}</h2>
-      <!-- <div class="h-5 w-5 animate-pulse rounded-full bg-slate-200"></div> -->
-      <div class="text-theme-black grid size-5 place-items-center rounded-full bg-white text-xs font-medium"></div>
+      <div class="size-5 animate-pulse rounded-full bg-slate-300"></div>
+      <!-- <div class="text-jat-black grid size-5 place-items-center rounded-full bg-white text-xs font-medium">0</div> -->
     </div>
-    <button
-      class="bg-theme-gray-100 text-theme-gray-400 w-full rounded-lg py-2 text-center font-medium transition-transform duration-150 ease-in-out active:scale-95 disabled:opacity-50 disabled:active:scale-100"
-    >
-      + Add Job
-    </button>
+
+    <CreateButton client:load status={headline} />
   </header>
 
   <slot />

@@ -27,6 +27,7 @@
     "@types/node": "22.15.3",
     "@typescript-eslint/eslint-plugin": "8.31.1",
     "@typescript-eslint/parser": "8.31.1",
+    "@usesvelte/inline-svg": "0.5.0",
     "astro-icon": "1.1.5",
     "eslint": "9.25.1",
     "eslint-config-love": "119.0.0",
