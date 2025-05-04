@@ -41,6 +41,9 @@ jobs:
       - name: CNAME file 🌐
         run: echo 'tools.erian.dev' > dist/CNAME
 
+      - name: Disable Jekyll ⛔
+        run: touch dist/.nojekyll
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
