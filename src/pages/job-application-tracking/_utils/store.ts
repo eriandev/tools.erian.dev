@@ -48,11 +48,11 @@ export function useBoard() {
     persistBoardInfo()
   }
 
-  const updateColumnCards = (status: JobApplicationStatus, updatedCards: JobApplicationInfo[]) => {
+  const updateColumnCards = (status: JobApplicationStatus, updatedCards: JobApplicationInfo[], { persist = false } = {}) => {
     const newBoardInfo = get(boardInfo)
     newBoardInfo[status] = updatedCards
     boardInfo.set(newBoardInfo)
-    persistBoardInfo()
+    if (persist) persistBoardInfo()
   }
 
   const persistBoardInfo = () => {
