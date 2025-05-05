@@ -4,6 +4,11 @@ import type { HTMLButtonAttributes, HTMLInputAttributes } from 'svelte/elements'
 import type { IconName } from 'virtual:icon'
 import type { JobApplicationInfo, JobApplicationStatus } from '../_utils/types.ts'
 
+interface BaseModalOptions {
+  overlayClick?: boolean
+  escapeKeyPress?: boolean
+}
+
 export interface BaseModalProps {
   y?: number
   show: boolean
@@ -66,7 +71,9 @@ export interface InputProps {
   label?: string
 }
 
-interface BaseModalOptions {
-  overlayClick?: boolean
-  escapeKeyPress?: boolean
+export interface PopoverProps {
+  y?: number
+  label: string
+  duration?: number
+  children: Snippet
 }

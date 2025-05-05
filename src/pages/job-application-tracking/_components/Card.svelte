@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Popover from './Popover.svelte'
   import Icon from '@/shared/components/Icon.svelte'
   import { getTimeAgo, getFormattedDate } from '@/shared/utils/time'
   import type { CardProps } from './types'
@@ -31,13 +32,21 @@
 
       <div class="grid auto-cols-min grid-flow-col items-center gap-x-2">
         {#if remote}
-          <Icon name="jat/remote" size={20} />
+          <Popover label="Remote available!">
+            <Icon name="jat/remote" size={20} />
+          </Popover>
         {/if}
         {#if salary}
-          <Icon name="jat/paid" size={16} />
+          <Popover label={salary}>
+            <Icon name="jat/paid" size={16} />
+          </Popover>
         {/if}
         {#if jobPostUrl}
-          <Icon name="jat/link" size={16} />
+          <a target="_blank" rel="noopener noreferrer" href={jobPostUrl}>
+            <Popover label="Go to the post">
+              <Icon name="jat/link" size={16} />
+            </Popover>
+          </a>
         {/if}
       </div>
     </div>
