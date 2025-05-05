@@ -1,6 +1,7 @@
 <script lang="ts">
   import Popover from './Popover.svelte'
   import Icon from '@/shared/components/Icon.svelte'
+  import Link from '@/shared/components/Link.svelte'
   import { getTimeAgo, getFormattedDate } from '@/shared/utils/time'
   import type { CardProps } from './types'
 
@@ -42,19 +43,19 @@
           </Popover>
         {/if}
         {#if jobPostUrl}
-          <a target="_blank" rel="noopener noreferrer" href={jobPostUrl}>
+          <Link external to={jobPostUrl} stopPropagation>
             <Popover label="Go to the post">
               <Icon name="jat/link" size={16} />
             </Popover>
-          </a>
+          </Link>
         {/if}
       </div>
     </div>
 
     {#if meetUrl && showMeet}
-      <a target="_blank" rel="noopener noreferrer" title={meetUrl} href={meetUrl}>
+      <Link external to={meetUrl} title={meetUrl}>
         <span class="text-jat-gray-300 text-sm underline">Go to meeting</span>
-      </a>
+      </Link>
     {/if}
   </footer>
 </article>
