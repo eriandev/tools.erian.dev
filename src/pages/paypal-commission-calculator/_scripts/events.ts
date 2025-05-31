@@ -9,10 +9,10 @@ import {
   $receiveComission,
 } from './declareRefs.ts'
 
-window.isOnlyNumbers = isOnlyNumbers
+window.isOnlyNumberOrDot = isOnlyNumberOrDot
 
-function isOnlyNumbers({ key }: KeyboardEvent): boolean {
-  const pattern = /^[0-9]$/
+function isOnlyNumberOrDot({ key }: KeyboardEvent): boolean {
+  const pattern = /^\d+(\.\d+)?$/
   return pattern.test(key)
 }
 

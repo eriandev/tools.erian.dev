@@ -1,6 +1,6 @@
 declare global {
   interface Window {
-    isOnlyNumbers: (event: KeyboardEvent) => boolean
+    isOnlyNumberOrDot: (event: KeyboardEvent) => boolean
   }
 }
 
