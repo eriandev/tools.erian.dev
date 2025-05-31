@@ -18,7 +18,7 @@ const body: BodyProps = {
 ---
 
 <BaseLayout {html} {body} {title} {description} {slug} themeColor="#070439">
-  <style is:inline slot="styles">
+  <style is:inline slot="head">
     @font-face {
       font-weight: 400;
       font-family: 'Ubuntu';
@@ -35,7 +35,7 @@ const body: BodyProps = {
       src: url('/fonts/ubuntu-500.woff2') format('woff2');
     }
   </style>
-  <Fragment slot="scripts">
+  <Fragment slot="head">
     <script src="./_scripts/declareRefs.ts"></script>
     <script src="./_scripts/events.ts"></script>
   </Fragment>

@@ -19,15 +19,10 @@ const { description, title, themeColor, html, body } = Astro.props
     <title>{title}</title>
     <meta name="description" content={description} />
 
-    <slot name="head" />
-
     <link rel="canonical" href={canonicalUrl} />
     <link rel="apple-touch-icon" href={faviconImagePath} />
     <link rel="icon" type="image/png" href={faviconImagePath} />
     {themeColor && <meta name="theme-color" content={themeColor} />}
-
-    <slot name="preconnect" />
-    <slot name="preload" />
 
     <meta property="og:title" content={title} />
     <meta property="og:type" content="website" />
@@ -41,8 +36,7 @@ const { description, title, themeColor, html, body } = Astro.props
     <meta name="twitter:description" content={description} />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <slot name="styles" />
-    <slot name="scripts" />
+    <slot name="head" />
   </head>
 
   <body {...body}>
