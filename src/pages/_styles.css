@@ -1,4 +1,4 @@
-@import '@/shared/styles/tailwind';
+@import '@/shared/styles/tailwind.css';
 
 @layer components {
   .card-shadow {

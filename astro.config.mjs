@@ -1,3 +1,4 @@
+import path from 'node:path'
 import icon from 'astro-icon'
 import { loadEnv } from 'vite'
 import svelte from '@astrojs/svelte'
@@ -11,6 +12,13 @@ const { PUBLIC_BASE_URL } = loadEnv('', '', 'PUBLIC')
 export default defineConfig({
   site: PUBLIC_BASE_URL,
   build: { assets: 'assets' },
-  vite: { plugins: [tailwindcss()] },
   integrations: [icon(), svelte(), iconTyping()],
+  vite: {
+    plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        '@': path.resolve('./src'),
+      },
+    },
+  },
 })
