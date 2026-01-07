@@ -3,5 +3,14 @@
   "printWidth": 120,
   "singleQuote": true,
   "trailingComma": "all",
-  "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"]
+  "tailwindStylesheet": "./src/shared/styles/tailwind.css",
+  "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss", "prettier-plugin-svelte"],
+  "overrides": [
+    {
+      "files": "*.svelte",
+      "options": {
+        "parser": "svelte"
+      }
+    }
+  ]
 }

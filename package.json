@@ -8,10 +8,10 @@
     "astro": "astro",
     "dev": "astro dev",
     "preview": "astro preview",
+    "format": "prettier --write .",
     "build": "pnpm check && astro build",
     "lint": "eslint --fix src/**/*.{astro,ts}",
-    "check": "astro check --tsconfig tsconfig.json",
-    "format": "prettier --write src/**/*.{astro,ts,css}"
+    "check": "astro check --tsconfig tsconfig.json"
   },
   "engines": {
     "node": ">=22",
@@ -34,6 +34,7 @@
     "eslint-plugin-astro": "1.5.0",
     "prettier": "3.7.4",
     "prettier-plugin-astro": "0.14.1",
+    "prettier-plugin-svelte": "3.4.1",
     "prettier-plugin-tailwindcss": "0.7.2",
     "sharp": "0.34.5",
     "svelte": "5.45.10",
