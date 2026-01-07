@@ -16,7 +16,7 @@ export function useBoard() {
   const initBoardInfo = () => {
     const rawInfo = storage.get<BoardInfo>(BOARD_INFO_KEY, true)
 
-    if (rawInfo == null || typeof rawInfo === 'string') {
+    if (rawInfo === null || typeof rawInfo === 'string') {
       storage.set(BOARD_INFO_KEY, DEFAULT_BOARD_INFO)
       boardInfo.set(DEFAULT_BOARD_INFO)
     } else {

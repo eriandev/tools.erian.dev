@@ -44,8 +44,8 @@ $amount?.addEventListener('input', ({ target }) => {
 })
 
 function updateValues(sendValue: string, recieveValue: string, sendCommision: string, recieveCommision: string) {
-  if ($send != null) $send.value = sendValue
-  if ($receive != null) $receive.value = recieveValue
-  if ($sendComission != null) $sendComission.value = sendCommision
-  if ($receiveComission != null) $receiveComission.value = recieveCommision
+  if ($send !== null) $send.value = sendValue
+  if ($receive !== null) $receive.value = recieveValue
+  if ($sendComission !== null) $sendComission.value = sendCommision
+  if ($receiveComission !== null) $receiveComission.value = recieveCommision
 }

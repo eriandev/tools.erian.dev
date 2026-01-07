@@ -10,8 +10,8 @@
     onclick,
     ...restProps
   }: SvelteLinkProps = $props()
-  const rel = external ? 'noopener noreferrer' : null
-  const target = external ? '_blank' : null
+  const target = $derived(external ? '_blank' : null)
+  const rel = $derived(external ? 'noopener noreferrer' : null)
 
   function clickHanlder(event: MouseEvent & { currentTarget: EventTarget & HTMLAnchorElement }) {
     if (preventDefault) event.preventDefault()

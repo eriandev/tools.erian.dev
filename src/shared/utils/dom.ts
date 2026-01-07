@@ -3,7 +3,7 @@ export const $$ = <T extends Element>(selector: string): NodeListOf<T> => docume
 export const storage = {
   get: <T = string>(storageName: string, parseValue = false) => {
     const value = localStorage.getItem(storageName)
-    return value != null && parseValue ? (JSON.parse(value) as T) : value
+    return value !== null && parseValue ? (JSON.parse(value) as T) : value
   },
   set: (storageName: string, item: unknown) => {
     const valueItem = typeof item === 'string' ? item : JSON.stringify(item)
