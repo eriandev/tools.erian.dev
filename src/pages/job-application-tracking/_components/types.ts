@@ -69,6 +69,7 @@ export interface InputProps {
   value: string
   icon: IconName
   label?: string
+  type?: 'text' | 'decimal'
 }
 
 export interface PopoverProps {

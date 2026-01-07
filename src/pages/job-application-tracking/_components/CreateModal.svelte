@@ -44,7 +44,7 @@
     <Input id="job-title-field" bind:value={jobTitle} icon="jat/briefcase" label="Job Title" />
     <Input id="location-field" bind:value={location} icon="jat/location" label="Location" />
     <Input id="url-field" bind:value={jobPostUrl} icon="jat/link" label="URL" />
-    <Input id="salary-field" bind:value={salary} icon="jat/paid" label="Salary" />
+    <Input id="salary-field" type="decimal" bind:value={salary} icon="jat/paid" label="Salary" />
     <Input id="meet-url-field" bind:value={meetUrl} icon="jat/paid" label="Meet URL" />
     <Checkbox id="remote-field" bind:checked={remote} icon="jat/remote" label="Remote" />
   </section>
