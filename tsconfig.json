@@ -6,9 +6,5 @@
       "@/*": ["./src/*"]
     }
   },
-  "exclude": [
-    "sites",
-    "packages",
-    "node_modules"
-  ]
+  "exclude": ["sites", "packages", "node_modules"]
 }

@@ -22,7 +22,7 @@
   {id}
   class="flex text-left cursor-pointer flex-col gap-y-1 rounded-lg bg-white p-4 shadow-sm transition-shadow duration-200 ease-in-out outline-none hover:shadow-md"
 >
-  <h3 class="line-clamp-1 text-xl leading-[1.25] capitalize">{location}</h3>
+  <h3 class="line-clamp-1 text-xl leading-tight capitalize">{location}</h3>
   <p class="text-jat-gray-400 mb-2 line-clamp-2 overflow-hidden text-lg leading-[1.2]">{jobTitle}</p>
 
   <footer class="text-jat-gray-300 flex justify-between">

@@ -9,7 +9,7 @@
     large = false,
     editable = false,
     class: extraClass,
-    value = $bindable()
+    value = $bindable(),
   }: EditableTextProps = $props()
 </script>
 
@@ -19,7 +19,11 @@
       type="text"
       bind:value
       readonly={!editable}
-      class={['w-full rounded bg-jat-secondary px-2 py-1 text-jat-gray-400', extraClass, { 'hidden': !editable, 'text-xl md:text-2xl': large }]}
+      class={[
+        'w-full rounded bg-jat-secondary px-2 py-1 text-jat-gray-400',
+        { hidden: !editable, 'text-xl md:text-2xl': large },
+        extraClass,
+      ]}
     />
     {#if errorMessage}
       <span class="text-xs text-red-400 block">{errorMessage}</span>
@@ -33,7 +37,11 @@
         rel="noopener noreferrer"
         href={value}
         title={value}
-        class={['flex w-max items-center gap-x-1 py-1 text-jat-blue underline', extraClass, { 'text-xl md:text-2xl': large }]}
+        class={[
+          'flex w-max items-center gap-x-1 py-1 text-jat-blue underline',
+          { 'text-xl md:text-2xl': large },
+          extraClass,
+        ]}
       >
         {label}
         <Icon name="jat/link" size={12} />

@@ -80,12 +80,30 @@
 <BaseModal show={visible}>
   <h3 class="text-xl capitalize text-jat-gray-400 md:text-2xl">new {$modalInfo.status} job</h3>
 
-  <section class="grid gap-y-4 pb-14 pt-6 md:grid-cols-[repeat(2,minmax(auto,220px))] md:gap-x-5 md:gap-y-[18px]">
-    <Input id="location-field" bind:value={location} icon="jat/location" label="Location" errorMessage={locationErrorMessage} />
-    <Input id="job-title-field" bind:value={jobTitle} icon="jat/briefcase" label="Job Title" errorMessage={jobTitleErrorMessage} />
+  <section class="grid gap-y-4 pb-14 pt-6 md:grid-cols-[repeat(2,minmax(auto,220px))] md:gap-x-5 md:gap-y-4.5">
+    <Input
+      label="Location"
+      id="location-field"
+      icon="jat/location"
+      bind:value={location}
+      errorMessage={locationErrorMessage}
+    />
+    <Input
+      label="Job Title"
+      id="job-title-field"
+      icon="jat/briefcase"
+      bind:value={jobTitle}
+      errorMessage={jobTitleErrorMessage}
+    />
     <Input id="url-field" bind:value={jobPostUrl} icon="jat/link" label="URL" errorMessage={jobPostUrlErrorMessage} />
     <Input id="salary-field" type="decimal" bind:value={salary} icon="jat/paid" label="Salary" />
-    <Input id="meet-url-field" bind:value={meetUrl} icon="jat/link" label="Meet URL" errorMessage={meetUrlErrorMessage} />
+    <Input
+      icon="jat/link"
+      label="Meet URL"
+      id="meet-url-field"
+      bind:value={meetUrl}
+      errorMessage={meetUrlErrorMessage}
+    />
     <Checkbox id="remote-field" bind:checked={remote} icon="jat/remote" label="Remote" />
   </section>
 

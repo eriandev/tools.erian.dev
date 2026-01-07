@@ -28,8 +28,8 @@
   }
 </script>
 
-<div class="flex flex-col gap-y-[6px] text-jat-gray-400">
-  <label for={id} class="flex items-center gap-x-[6px]">
+<div class="flex flex-col gap-y-1.5 text-jat-gray-400">
+  <label for={id} class="flex items-center gap-x-1.5">
     <Icon name={icon} size={16} />
     <span>{label}</span>
   </label>

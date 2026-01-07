@@ -8,9 +8,9 @@
   let { id, label = '', icon, disabled = false, checked = $bindable(), ...restProps }: CheckboxProps = $props()
 </script>
 
-<div class={['flex w-max flex-col gap-y-[6px] text-jat-gray-400', { 'opacity-70': disabled }]}>
+<div class={['flex w-max flex-col gap-y-1.5 text-jat-gray-400', { 'opacity-70': disabled }]}>
   {#if label}
-    <label for={id} class="flex items-center gap-x-[6px]">
+    <label for={id} class="flex items-center gap-x-1.5">
       {#if icon}
         <Icon name={icon} size={20} stroke="currentColor" />
       {/if}
@@ -18,7 +18,7 @@
     </label>
   {/if}
 
-  <div class={{ 'pl-[26px]': label }}>
+  <div class={{ 'pl-6.5': label }}>
     <input {id} {...restProps} bind:checked type="checkbox" class="peer sr-only" {disabled} />
     <label for={id} data-on="YES" data-off="NO" class={['checkbox-label', peerClass]}></label>
   </div>

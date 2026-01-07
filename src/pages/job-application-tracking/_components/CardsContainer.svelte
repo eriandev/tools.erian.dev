@@ -14,7 +14,7 @@
 </script>
 
 {#if $isLoading}
-  <div class="flex min-h-[400px] flex-col gap-y-2">
+  <div class="flex min-h-100 flex-col gap-y-2">
     {@render children?.()}
   </div>
 {:else}
@@ -22,7 +22,7 @@
     use:dndzone={{ items, flipDurationMs, dropTargetStyle: { outline: 'none' } }}
     onconsider={({ detail }) => updateColumnCards(status, detail.items)}
     onfinalize={({ detail }) => updateColumnCards(status, detail.items, { persist: true })}
-    class="flex min-h-[400px] flex-col gap-y-2"
+    class="flex min-h-100 flex-col gap-y-2"
   >
     {#each items as jobApplication (jobApplication.id)}
       <button

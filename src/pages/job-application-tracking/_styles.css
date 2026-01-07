@@ -43,7 +43,7 @@
   }
 
   .checkbox-label {
-    @apply bg-jat-gray-200 relative block w-10 cursor-pointer overflow-hidden rounded pb-8 outline-0 transition-[left,right,background-color] duration-200 ease-in-out select-none [-webkit-backface-visibility:hidden] [backface-visibility:hidden];
+    @apply bg-jat-gray-200 relative block w-10 cursor-pointer overflow-hidden rounded pb-8 outline-0 transition-[left,right,background-color] duration-200 ease-in-out select-none [-webkit-backface-visibility:hidden] backface-hidden;
 
     &::after {
       @apply absolute left-full block h-full w-full text-center leading-8 font-bold text-white transition-[left,right,background-color] duration-200 ease-in-out content-[attr(data-on)] [text-shadow:0_1px_0_rgba(0,0,0,0.4)];

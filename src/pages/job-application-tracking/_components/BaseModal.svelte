@@ -41,7 +41,7 @@
       tabindex="-1"
       bind:this={modal}
       transition:fly={{ y, duration }}
-      class="relative z-50 max-h-[95dvh] w-full max-w-xs overflow-y-auto rounded-lg bg-white p-5 sm:max-w-sm md:max-w-[540px] md:px-10 md:py-8"
+      class="relative z-50 max-h-[95dvh] w-full max-w-xs overflow-y-auto rounded-lg bg-white p-5 sm:max-w-sm md:max-w-135 md:px-10 md:py-8"
     >
       <button
         aria-label="Close modal"

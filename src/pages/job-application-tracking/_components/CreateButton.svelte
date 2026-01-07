@@ -5,7 +5,7 @@
   const { status }: CreateButtonProps = $props()
   const { openModal } = useModal()
 
-  function handleClick () {
+  function handleClick() {
     openModal({ action: 'create', status })
   }
 </script>

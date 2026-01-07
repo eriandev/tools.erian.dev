@@ -45,7 +45,7 @@
     jobPostUrlErrorMessage = undefined
   }
 
-  function reset () {
+  function reset() {
     id = $modalInfo?.jobApplication?.id ?? ''
     salary = $modalInfo?.jobApplication?.salary ?? ''
     meetUrl = $modalInfo?.jobApplication?.meetUrl ?? ''
@@ -116,10 +116,16 @@
 
 <BaseModal show={visible} options={{ overlayClick: !editing }}>
   <div class="pr-10 md:pr-5">
-    <EditableText large bind:value={location} editable={editing} class="capitalize" errorMessage={locationErrorMessage} />
+    <EditableText
+      large
+      bind:value={location}
+      editable={editing}
+      class="capitalize"
+      errorMessage={locationErrorMessage}
+    />
   </div>
 
-  <section class="grid gap-y-4 pb-14 pt-6 md:gap-x-5 md:gap-y-[18px]">
+  <section class="grid gap-y-4 pb-14 pt-6 md:gap-x-5 md:gap-y-4.5">
     <article class="grid grid-cols-[100px_auto] grid-rows-[32px] md:grid-cols-[120px_auto]">
       <div class="flex items-center gap-x-1.5 text-jat-black">
         <Icon name="jat/briefcase" size={18} />
@@ -132,7 +138,13 @@
         <Icon name="jat/link" size={16} />
         <span>URL</span>
       </div>
-      <EditableText bind:value={jobPostUrl} type="link" label="Go to job post" editable={editing} errorMessage={jobPostUrlErrorMessage} />
+      <EditableText
+        bind:value={jobPostUrl}
+        type="link"
+        label="Go to job post"
+        editable={editing}
+        errorMessage={jobPostUrlErrorMessage}
+      />
     </article>
     <article class="grid grid-cols-[100px_auto] grid-rows-[32px] md:grid-cols-[120px_auto]">
       <div class="flex items-center gap-x-1.5 text-jat-black">
@@ -146,7 +158,13 @@
         <Icon name="jat/link" size={16} />
         <span>Meet URL</span>
       </div>
-      <EditableText bind:value={meetUrl} type="link" label="Go to meeting" editable={editing} errorMessage={meetUrlErrorMessage} />
+      <EditableText
+        bind:value={meetUrl}
+        type="link"
+        label="Go to meeting"
+        editable={editing}
+        errorMessage={meetUrlErrorMessage}
+      />
     </article>
     <article class="grid grid-cols-[100px_auto] grid-rows-[32px] md:grid-cols-[120px_auto]">
       <div class="flex items-center gap-x-1.5 text-jat-black">
