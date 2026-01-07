@@ -1,5 +1,6 @@
 <script lang="ts">
   import Icon from '@/shared/components/Icon.svelte'
+  import Link from '@/shared/components/Link.svelte'
   import type { EditableTextProps } from './types'
 
   let {
@@ -32,10 +33,9 @@
 
   {#if !editable}
     {#if type === 'link' && value}
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href={value}
+      <Link
+        external
+        to={value}
         title={value}
         class={[
           'flex w-max items-center gap-x-1 py-1 text-jat-blue underline',
@@ -45,7 +45,7 @@
       >
         {label}
         <Icon name="jat/link" size={12} />
-      </a>
+      </Link>
     {:else if type === 'text'}
       <span class={['block truncate py-1 text-jat-gray-400', extraClass, { 'text-xl md:text-2xl': large }]}>
         {value}
