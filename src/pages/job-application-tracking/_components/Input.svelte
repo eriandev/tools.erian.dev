@@ -2,7 +2,7 @@
   import Icon from '@/shared/components/Icon.svelte'
   import type { InputProps } from './types'
 
-  let { id, icon, label, type = 'text', value = $bindable() }: InputProps = $props()
+  let { id, icon, label, errorMessage, type = 'text', value = $bindable() }: InputProps = $props()
 
   function handleInput(event: Event) {
     if (type !== 'decimal') return
@@ -34,4 +34,7 @@
     <span>{label}</span>
   </label>
   <input {id} bind:value inputmode={type} class="rounded bg-jat-secondary px-2 py-1" oninput={handleInput} />
+  {#if errorMessage}
+    <span class="text-xs text-red-400">{errorMessage}</span>
+  {/if}
 </div>

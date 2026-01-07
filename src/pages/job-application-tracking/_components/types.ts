@@ -61,6 +61,7 @@ export interface EditableTextProps {
   class?: string
   large?: boolean
   editable?: boolean
+  errorMessage?: string
   type?: 'link' | 'text'
 }
 
@@ -69,6 +70,7 @@ export interface InputProps {
   value: string
   icon: IconName
   label?: string
+  errorMessage?: string
   type?: 'text' | 'decimal'
 }
 
