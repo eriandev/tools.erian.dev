@@ -85,7 +85,7 @@
     <Input id="job-title-field" bind:value={jobTitle} icon="jat/briefcase" label="Job Title" errorMessage={jobTitleErrorMessage} />
     <Input id="url-field" bind:value={jobPostUrl} icon="jat/link" label="URL" errorMessage={jobPostUrlErrorMessage} />
     <Input id="salary-field" type="decimal" bind:value={salary} icon="jat/paid" label="Salary" />
-    <Input id="meet-url-field" bind:value={meetUrl} icon="jat/paid" label="Meet URL" errorMessage={meetUrlErrorMessage} />
+    <Input id="meet-url-field" bind:value={meetUrl} icon="jat/link" label="Meet URL" errorMessage={meetUrlErrorMessage} />
     <Checkbox id="remote-field" bind:checked={remote} icon="jat/remote" label="Remote" />
   </section>
 
