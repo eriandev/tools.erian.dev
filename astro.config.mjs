@@ -1,24 +1,8 @@
-import path from 'node:path'
-import icon from 'astro-icon'
-import { loadEnv } from 'vite'
-import svelte from '@astrojs/svelte'
-import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
-import { iconTyping } from './scripts/integrations.ts'
+import { BASE_URL } from 'shared/utils/consts'
+import { getAstroConfig } from 'shared/config/astro'
 
-const { PUBLIC_BASE_URL } = loadEnv('', '', 'PUBLIC')
+const config = getAstroConfig()
 
 // https://astro.build/config
-export default defineConfig({
-  site: PUBLIC_BASE_URL,
-  build: { assets: 'assets' },
-  integrations: [icon(), svelte(), iconTyping()],
-  vite: {
-    plugins: [tailwindcss()],
-    resolve: {
-      alias: {
-        '@': path.resolve('./src'),
-      },
-    },
-  },
-})
+export default defineConfig({ ...config, site: BASE_URL })

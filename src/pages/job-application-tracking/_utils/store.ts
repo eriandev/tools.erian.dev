@@ -1,5 +1,5 @@
 import { get } from 'svelte/store'
-import { storage } from '@/shared/utils/dom.ts'
+import { storage } from 'shared/utils/dom'
 import {
   boardInfo,
   modalInfo,
@@ -9,8 +9,8 @@ import {
   BOARD_INFO_KEY,
   DEFAULT_BOARD_INFO,
   DEFAULT_MODAL_INFO,
-} from './consts.ts'
-import type { BoardInfo, JobApplicationInfo, JobApplicationStatus, ModalInfo } from './types.ts'
+} from './consts'
+import type { BoardInfo, JobApplicationInfo, JobApplicationStatus, ModalInfo } from './types'
 
 export function useBoard() {
   const initBoardInfo = () => {

@@ -1,4 +1,4 @@
-import { getParsedValues, getRecieveValues, getSendValues } from './calculatorActions.ts'
+import { getParsedValues, getRecieveValues, getSendValues } from './calculatorActions'
 import {
   $send,
   $amount,
@@ -7,7 +7,7 @@ import {
   $fixedCommision,
   $percentCommision,
   $receiveComission,
-} from './declareRefs.ts'
+} from './declareRefs'
 
 window.isOnlyNumberOrDot = isOnlyNumberOrDot
 

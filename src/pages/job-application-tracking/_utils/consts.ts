@@ -1,5 +1,5 @@
 import { derived, writable } from 'svelte/store'
-import type { BoardInfo, ModalInfo } from './types.ts'
+import type { BoardInfo, ModalInfo } from './types'
 
 export const flipDurationMs = 200
 export const BOARD_INFO_KEY = 'jat'

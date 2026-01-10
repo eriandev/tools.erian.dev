@@ -4,7 +4,7 @@
   import Checkbox from './Checkbox.svelte'
   import BaseModal from './BaseModal.svelte'
   import { useBoard, useModal } from '../_utils/store'
-  import { isValidURL } from '@/shared/utils/validations'
+  import { isValidURL } from 'shared/utils/validations'
 
   const { createJobPost } = useBoard()
   const { closeModal, modalInfo, showModal } = useModal()

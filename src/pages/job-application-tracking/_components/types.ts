@@ -2,7 +2,7 @@ import type { Snippet } from 'svelte'
 import type { HTMLButtonAttributes, HTMLInputAttributes } from 'svelte/elements'
 
 import type { IconName } from 'virtual:icon'
-import type { JobApplicationInfo, JobApplicationStatus } from '../_utils/types.ts'
+import type { JobApplicationInfo, JobApplicationStatus } from '../_utils/types'
 
 interface BaseModalOptions {
   overlayClick?: boolean

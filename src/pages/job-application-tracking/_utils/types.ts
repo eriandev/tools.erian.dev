@@ -1,4 +1,4 @@
-import type { JOB_APPLICATION_STATUS } from './consts.ts'
+import type { JOB_APPLICATION_STATUS } from './consts'
 
 export type ModalAction = 'create' | 'edit'
 export type JobApplicationStatus = (typeof JOB_APPLICATION_STATUS)[number]

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { InlineSvg } from '@usesvelte/inline-svg'
-  import type { SvelteIconProps } from '@/shared/components/types'
+  import type { SvelteIconProps } from 'shared/components/types'
 
   interface Props extends SvelteIconProps {}
 

@@ -38,6 +38,7 @@
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-svelte": "3.4.1",
     "prettier-plugin-tailwindcss": "0.7.2",
+    "shared": "workspace:*",
     "sharp": "0.34.5",
     "svelte": "5.45.10",
     "svelte-dnd-action": "0.9.68",

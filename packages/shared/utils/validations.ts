@@ -1,4 +1,4 @@
-import { VALID_HOST_REGEX, VALID_URL_REGEX } from '@/shared/consts'
+import { VALID_HOST_REGEX, VALID_URL_REGEX } from 'shared/utils/consts'
 
 export function isValidHost(possibleHost: string) {
   return possibleHost.match(VALID_HOST_REGEX) !== null

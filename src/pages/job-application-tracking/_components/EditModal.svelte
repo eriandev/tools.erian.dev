@@ -4,9 +4,9 @@
   import BaseModal from './BaseModal.svelte'
   import EditableText from './EditableText.svelte'
   import DeleteButton from './DeleteButton.svelte'
-  import Icon from '@/shared/components/Icon.svelte'
+  import Icon from 'shared/components/Icon.svelte'
   import { useBoard, useModal } from '../_utils/store'
-  import { isValidURL } from '@/shared/utils/validations'
+  import { isValidURL } from 'shared/utils/validations'
 
   const { deleteJobPost, updateCardInfo } = useBoard()
   const { modalInfo, showModal, closeModal } = useModal()

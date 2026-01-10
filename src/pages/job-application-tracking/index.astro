@@ -2,9 +2,9 @@
 import Layout from './_layout.astro'
 import Column from './_components/Column.astro'
 import EditModal from './_components/EditModal.svelte'
+import { JOB_APPLICATION_STATUS } from './_utils/consts'
 import CreateModal from './_components/CreateModal.svelte'
 import CardSkeleton from './_components/CardSkeleton.astro'
-import { JOB_APPLICATION_STATUS } from './_utils/consts.ts'
 import CardsContainer from './_components/CardsContainer.svelte'
 
 const slug = 'job-application-tracking'
@@ -13,7 +13,7 @@ const description = 'App to help users organize, track and save their job applic
 ---
 
 <script>
-  import { useBoard } from './_utils/store.ts'
+  import { useBoard } from './_utils/store'
   useBoard().initBoardInfo()
 </script>
 

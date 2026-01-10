@@ -1,4 +1,4 @@
-@import '@/shared/styles/tailwind.css';
+@import 'shared/styles/tailwind.css';
 
 @utility input-appearance-none {
   &::-webkit-outer-spin-button {

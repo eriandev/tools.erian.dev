@@ -1,0 +1,13 @@
+{
+  "name": "shared",
+  "version": "0.0.0",
+  "license": "MIT",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf node_modules",
+    "format": "prettier --write .",
+    "lint": "prettier --check . && eslint .",
+    "check": "astro check --tsconfig tsconfig.json"
+  }
+}

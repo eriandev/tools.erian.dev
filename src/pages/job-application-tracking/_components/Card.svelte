@@ -1,8 +1,8 @@
 <script lang="ts">
   import Popover from './Popover.svelte'
-  import Icon from '@/shared/components/Icon.svelte'
-  import Link from '@/shared/components/Link.svelte'
-  import { getTimeAgo, getFormattedDate } from '@/shared/utils/time'
+  import Icon from 'shared/components/Icon.svelte'
+  import Link from 'shared/components/Link.svelte'
+  import { getTimeAgo, getFormattedDate } from 'shared/utils/time'
   import type { CardProps } from './types'
 
   const {
