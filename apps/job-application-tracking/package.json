@@ -1,0 +1,23 @@
+{
+  "name": "job-application-tracking",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "astro": "astro",
+    "dev": "astro dev",
+    "preview": "astro preview",
+    "format": "prettier --write .",
+    "build": "pnpm check && astro build",
+    "lint": "prettier --check . && eslint .",
+    "check": "astro check --tsconfig tsconfig.json",
+    "clean": "rm -rf .astro && rm -rf dist && rm -rf node_modules"
+  },
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=8"
+  },
+  "devDependencies": {
+    "shared": "workspace:*"
+  }
+}

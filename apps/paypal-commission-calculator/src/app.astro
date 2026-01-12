@@ -1,0 +1,43 @@
+---
+import BaseLayout from 'shared/components/BaseLayout.astro'
+import type { BodyProps, HTMLProps } from 'shared/components/types'
+import '@/app.css'
+
+interface Props {
+  title: string
+  slug?: string
+  class?: string
+  description: string
+}
+
+const { title, description, slug, class: bodyClass } = Astro.props
+const html: HTMLProps = { lang: 'en' }
+const body: BodyProps = {
+  'class:list': ['font-ubuntu min-h-screen text-gray-900 dark:bg-gray-900 dark:text-white', bodyClass],
+}
+---
+
+<BaseLayout {html} {body} {title} {description} {slug} themeColor="#070439">
+  <style is:inline slot="head">
+    @font-face {
+      font-weight: 400;
+      font-family: 'Ubuntu';
+      font-style: normal;
+      font-display: swap;
+      src: url('/fonts/ubuntu-400.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-weight: 500;
+      font-family: 'Ubuntu';
+      font-style: normal;
+      font-display: swap;
+      src: url('/fonts/ubuntu-500.woff2') format('woff2');
+    }
+  </style>
+  <Fragment slot="head">
+    <script src="@/logic/declare-refs.ts"></script>
+    <script src="@/logic/events.ts"></script>
+  </Fragment>
+  <slot />
+</BaseLayout>

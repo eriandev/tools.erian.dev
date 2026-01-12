@@ -1,0 +1,39 @@
+---
+import Layout from '@/app.astro'
+import Column from '@/components/Column.astro'
+import EditModal from '@/components/EditModal.svelte'
+import { JOB_APPLICATION_STATUS } from '@/stores/consts'
+import CreateModal from '@/components/CreateModal.svelte'
+import CardSkeleton from '@/components/CardSkeleton.astro'
+import CardsContainer from '@/components/CardsContainer.svelte'
+
+const slug = 'job-application-tracking'
+const title = 'Job Application Tracking'
+const description = 'App to help users organize, track and save their job applications.'
+---
+
+<script>
+  import { useBoard } from '@/stores/use-board'
+  useBoard().initBoardInfo()
+</script>
+
+<Layout {title} {slug} {description}>
+  <main>
+    <h1 class="px-5 pt-10 pb-5 text-[2rem] md:px-8">{title}</h1>
+
+    <section class="flex gap-x-8 overflow-x-auto px-5 md:px-8">
+      {
+        JOB_APPLICATION_STATUS.map((status) => (
+          <Column headline={status}>
+            <CardsContainer {status} client:load>
+              <CardSkeleton />
+            </CardsContainer>
+          </Column>
+        ))
+      }
+    </section>
+  </main>
+
+  <EditModal client:load />
+  <CreateModal client:load />
+</Layout>

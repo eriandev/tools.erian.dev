@@ -6,7 +6,5 @@ bun.lock
 bun.lockb
 
 # Miscellaneous
-packages/
-.astro/
-dist/
-apps/
+/.astro/
+/dist/

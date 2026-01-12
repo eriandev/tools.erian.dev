@@ -8,10 +8,12 @@
     "astro": "astro",
     "dev": "astro dev",
     "preview": "astro preview",
-    "format": "prettier --write .",
-    "build": "pnpm check && astro build",
-    "lint": "prettier --check . && eslint .",
-    "check": "astro check --tsconfig tsconfig.json"
+    "build": "astro build && pnpm -r build",
+    "check": "astro check --tsconfig tsconfig.json",
+    "format": "prettier --write . && pnpm -r format",
+    "all:run": "pnpm -r --stream --workspace-concurrency 3",
+    "lint": "prettier --check . && eslint . && pnpm -r lint",
+    "clean": "rm -rf .astro && rm -rf dist && rm -rf node_modules && pnpm -r clean"
   },
   "engines": {
     "node": ">=22",
@@ -22,14 +24,11 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.6",
-    "@astrojs/svelte": "7.2.4",
     "@eslint/compat": "2.0.0",
-    "@tailwindcss/vite": "4.1.18",
     "@types/node": "25.0.3",
     "@typescript-eslint/eslint-plugin": "8.49.0",
     "@typescript-eslint/parser": "8.49.0",
     "@usesvelte/inline-svg": "0.5.0",
-    "astro-icon": "1.1.5",
     "eslint": "9.39.2",
     "eslint-config-love": "140.0.0",
     "eslint-plugin-astro": "1.5.0",

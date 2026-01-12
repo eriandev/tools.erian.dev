@@ -1,0 +1,26 @@
+---
+import CreateButton from './CreateButton.svelte'
+import Icon from 'shared/components/Icon.astro'
+import ColumnCount from './ColumnCount.svelte'
+import type { ColumnProps } from './types'
+
+interface Props extends ColumnProps {}
+
+const { headline } = Astro.props
+---
+
+<section class="max-w-xs min-w-[320px] pb-10">
+  <header class="mb-2 flex flex-col gap-y-3">
+    <div class="grid grid-cols-[fit-content(100%)_auto_fit-content(100%)] items-center gap-x-2">
+      <Icon name={headline} size={20} />
+      <h2 class="text-xl capitalize">{headline}</h2>
+      <ColumnCount client:load status={headline}>
+        <div class="size-5 animate-pulse rounded-full bg-slate-200"></div>
+      </ColumnCount>
+    </div>
+
+    <CreateButton client:load status={headline} />
+  </header>
+
+  <slot />
+</section>

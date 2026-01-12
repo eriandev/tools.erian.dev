@@ -9,5 +9,10 @@
     "format": "prettier --write .",
     "lint": "prettier --check . && eslint .",
     "check": "astro check --tsconfig tsconfig.json"
+  },
+  "devDependencies": {
+    "@astrojs/svelte": "7.2.5",
+    "@tailwindcss/vite": "4.1.18",
+    "astro-icon": "1.1.5"
   }
 }

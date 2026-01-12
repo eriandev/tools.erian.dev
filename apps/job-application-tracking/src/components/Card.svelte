@@ -1,0 +1,61 @@
+<script lang="ts">
+  import Popover from './Popover.svelte'
+  import Icon from 'shared/components/Icon.svelte'
+  import Link from 'shared/components/Link.svelte'
+  import { getTimeAgo, getFormattedDate } from 'shared/utils/time'
+  import type { CardProps } from './types'
+
+  const {
+    id,
+    salary,
+    meetUrl,
+    jobTitle,
+    location,
+    timeStamp,
+    jobPostUrl,
+    remote = false,
+    showMeet = false,
+  }: CardProps = $props()
+</script>
+
+<article
+  {id}
+  class="flex text-left cursor-pointer flex-col gap-y-1 rounded-lg bg-white p-4 shadow-sm transition-shadow duration-200 ease-in-out outline-none hover:shadow-md"
+>
+  <h3 class="line-clamp-1 text-xl leading-tight capitalize">{location}</h3>
+  <p class="text-jat-gray-400 mb-2 line-clamp-2 overflow-hidden text-lg leading-[1.2]">{jobTitle}</p>
+
+  <footer class="text-jat-gray-300 flex justify-between">
+    <div class="grid auto-cols-max grid-flow-col gap-x-2">
+      <span title={getFormattedDate(timeStamp)} class="bg-jat-secondary max-w-max rounded-full px-2 py-1 text-xs">
+        {getTimeAgo(timeStamp)}
+      </span>
+
+      <div class="grid auto-cols-min grid-flow-col items-center gap-x-2">
+        {#if remote}
+          <Popover label="Remote available!">
+            <Icon name="remote" size={20} />
+          </Popover>
+        {/if}
+        {#if salary}
+          <Popover label={salary}>
+            <Icon name="paid" size={16} />
+          </Popover>
+        {/if}
+        {#if jobPostUrl}
+          <Link external to={jobPostUrl} stopPropagation>
+            <Popover label="Go to the post">
+              <Icon name="link" size={16} />
+            </Popover>
+          </Link>
+        {/if}
+      </div>
+    </div>
+
+    {#if meetUrl && showMeet}
+      <Link external to={meetUrl} title={meetUrl}>
+        <span class="text-jat-gray-300 text-sm underline">Go to meeting</span>
+      </Link>
+    {/if}
+  </footer>
+</article>
