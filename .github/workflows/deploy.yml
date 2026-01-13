@@ -23,7 +23,7 @@ jobs:
       - name: Use pnpm 🗜️
         uses: pnpm/action-setup@v2
         with:
-          version: 10.27.0
+          version: 10.28.0
           run_install: false
 
       - name: Use Node.js 🐢
@@ -33,10 +33,15 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies ⚙️
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Build 🛠️
         run: pnpm build
+
+      - name: Merge dists 🔀
+        run: |
+          chmod +x scripts/merge-dists.sh
+          ./scripts/merge-dists.sh
 
       - name: CNAME file 🌐
         run: echo 'tools.erian.dev' > dist/CNAME
