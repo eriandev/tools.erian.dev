@@ -1,1 +1,0 @@
-const r=e=>document.querySelector(e),a={get:(e,t=!1)=>{const o=localStorage.getItem(e);return o!==null&&t?JSON.parse(o):o},set:(e,t)=>{const o=typeof t=="string"?t:JSON.stringify(t);localStorage.setItem(e,o)},remove:e=>{localStorage.removeItem(e)},clear:()=>{localStorage.clear()}};export{r as $,a as s};

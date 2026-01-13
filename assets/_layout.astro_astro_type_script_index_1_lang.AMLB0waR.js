@@ -1,1 +1,0 @@
-import{$ as s}from"./dom.CaArDW8i.js";const e=s("#send"),i=s("#amount"),n=s("#receive"),c=s("#send-comission"),m=s("#fixed-commision"),t=s("#percent-commision"),a=s("#receive-comission");export{i as $,t as a,m as b,e as c,n as d,c as e,a as f};
