@@ -1,12 +1,15 @@
 ---
-import { BASE_URL } from 'shared/utils/consts'
 import type { BaseLayoutProps } from 'shared/components/types'
 
-interface Props extends BaseLayoutProps {}
+interface Props extends BaseLayoutProps {
+  baseUrl: string
+}
 
-const faviconImagePath = BASE_URL + '/favicon.png'
-const previewImagePath = BASE_URL + '/preview.png'
-const canonicalUrl = Astro.url.pathname !== '/' ? new URL(Astro.url.pathname, BASE_URL).href : BASE_URL
+const { baseUrl } = Astro.props
+
+const faviconImagePath = baseUrl + '/favicon.png'
+const previewImagePath = baseUrl + '/preview.png'
+const canonicalUrl = Astro.url.pathname !== '/' ? new URL(Astro.url.pathname, baseUrl).href : baseUrl
 const { description, title, themeColor, html, body } = Astro.props
 ---
 
@@ -26,7 +29,7 @@ const { description, title, themeColor, html, body } = Astro.props
 
     <meta property="og:title" content={title} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={BASE_URL} />
+    <meta property="og:url" content={baseUrl} />
     <meta property="og:image" content={previewImagePath} />
     <meta property="og:description" content={description} />
 

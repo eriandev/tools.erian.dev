@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config'
-import { BASE_URL } from 'shared/utils/consts'
+import { BASE_URL } from 'shared/utils/env'
 import { getAstroConfig } from 'shared/config/astro'
 
-const config = getAstroConfig()
+const config = getAstroConfig({ site: BASE_URL })
 
 // https://astro.build/config
-export default defineConfig({ ...config, site: BASE_URL })
+export default defineConfig(config)

@@ -1,4 +1,5 @@
 ---
+import { BASE_URL } from 'shared/utils/env'
 import BaseLayout from 'shared/components/BaseLayout.astro'
 import type { BodyProps, HTMLProps } from 'shared/components/types'
 import '@/app.css'
@@ -17,7 +18,7 @@ const body: BodyProps = {
 }
 ---
 
-<BaseLayout {html} {body} {title} {description} {slug} themeColor="#070439">
+<BaseLayout baseUrl={BASE_URL} {html} {body} {title} {description} {slug} themeColor="#070439">
   <style is:inline slot="head">
     @font-face {
       font-weight: 400;

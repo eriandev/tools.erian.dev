@@ -2,8 +2,8 @@
 import Layout from '@/app.astro'
 import { get } from 'shared/utils/http'
 import Card from '@/components/Card.astro'
+import { API_URL } from 'shared/utils/env'
 import { isEven } from 'shared/utils/number'
-import { API_URL } from 'shared/utils/consts'
 import type { PageApiResponse } from 'shared/utils/types'
 
 const { title, subtitle, description, sites } = await get<PageApiResponse>(API_URL)

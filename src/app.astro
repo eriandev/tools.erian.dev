@@ -1,4 +1,5 @@
 ---
+import { BASE_URL } from 'shared/utils/env'
 import BaseLayout from 'shared/components/BaseLayout.astro'
 import type { BodyProps, HTMLProps } from 'shared/components/types'
 import '@/app.css'
@@ -16,6 +17,6 @@ const html: HTMLProps = { lang: 'en' }
 const body: BodyProps = { 'class:list': ['min-h-screen', bodyClass] }
 ---
 
-<BaseLayout {html} {body} {title} {description} {themeColor}>
+<BaseLayout baseUrl={BASE_URL} {html} {body} {title} {description} {themeColor}>
   <slot />
 </BaseLayout>

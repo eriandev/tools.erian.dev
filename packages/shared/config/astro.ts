@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite'
 import { iconTyping } from 'shared/config/integrations'
 
 export interface GetAstroConfig {
+  site: string
   app?: string
   hostname?: string
   useSvelte?: boolean
@@ -14,7 +15,7 @@ export interface GetAstroConfig {
 const getSvelteIntegrations = (isNeeded: boolean) => (isNeeded ? [svelte()] : [])
 const getIconIntegrations = (isNeeded: boolean) => (isNeeded ? [icon(), iconTyping()] : [])
 
-export function getAstroConfig({ app, hostname, useSvelte = false, useAstroIcon = false }: GetAstroConfig = {}) {
+export function getAstroConfig({ app, site, hostname, useSvelte = false, useAstroIcon = false }: GetAstroConfig) {
   const assets = 'assets'
   const hasAppName = typeof app === 'string'
   const base = hasAppName ? '/' + app : '/'
@@ -22,6 +23,7 @@ export function getAstroConfig({ app, hostname, useSvelte = false, useAstroIcon 
 
   return {
     base,
+    site,
     build: { assets },
     image: hasHostname ? { domains: [hostname] } : undefined,
     integrations: [...getIconIntegrations(useAstroIcon), ...getSvelteIntegrations(useSvelte)],
