@@ -19,5 +19,8 @@
   },
   "devDependencies": {
     "shared": "workspace:*"
+  },
+  "dependencies": {
+    "wc-toast": "1.3.1"
   }
 }
