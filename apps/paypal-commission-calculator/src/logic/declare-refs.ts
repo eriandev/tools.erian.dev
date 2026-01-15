@@ -1,7 +1,8 @@
 import { $ } from 'shared/utils/dom'
+import { amountID, receiveCommissionID, receiveID, sendCommissionID, sendID } from './consts'
 
-export const $send = $<HTMLInputElement>('#send')
-export const $amount = $<HTMLInputElement>('#amount')
-export const $receive = $<HTMLInputElement>('#receive')
-export const $sendCommission = $<HTMLInputElement>('#send-commission')
-export const $receiveCommission = $<HTMLInputElement>('#receive-commission')
+export const $send = $<HTMLInputElement>('#' + sendID)
+export const $amount = $<HTMLInputElement>('#' + amountID)
+export const $receive = $<HTMLInputElement>('#' + receiveID)
+export const $sendCommission = $<HTMLInputElement>('#' + sendCommissionID)
+export const $receiveCommission = $<HTMLInputElement>('#' + receiveCommissionID)

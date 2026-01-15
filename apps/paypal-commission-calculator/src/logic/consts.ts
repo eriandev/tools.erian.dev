@@ -1,0 +1,5 @@
+export const sendID = 'send'
+export const amountID = 'amount'
+export const receiveID = 'receive'
+export const sendCommissionID = 'send-commission'
+export const receiveCommissionID = 'receive-commission'

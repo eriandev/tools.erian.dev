@@ -3,6 +3,7 @@ import Layout from '@/app.astro'
 import AmountInput from '@/components/AmountInput.astro'
 import DiagonalBack from '@/components/DiagonalBack.astro'
 import CopyValueInput from '@/components/CopyValueInput.astro'
+import { amountID, receiveCommissionID, receiveID, sendCommissionID, sendID } from '@/logic/consts'
 
 const slug = 'paypal-commission-calculator'
 const title = 'Paypal Commission Calculator'
@@ -28,17 +29,17 @@ const description =
 
       <section class="grid gap-y-4 text-center md:flex">
         <article class="grid justify-items-center gap-y-4 lg:w-1/2">
-          <CopyValueInput id="send" label="You must to send" />
-          <CopyValueInput id="send-commission" label="Commission" />
+          <CopyValueInput id={sendID} label="You must to send" />
+          <CopyValueInput id={sendCommissionID} label="Commission" />
         </article>
 
         <article class="grid justify-items-center gap-y-4 lg:w-1/2">
-          <CopyValueInput id="receive" label="You will recieve" />
-          <CopyValueInput id="receive-commission" label="Commission" />
+          <CopyValueInput id={receiveID} label="You will recieve" />
+          <CopyValueInput id={receiveCommissionID} label="Commission" />
         </article>
       </section>
     </main>
 
-    <AmountInput />
+    <AmountInput id={amountID} />
   </div>
 </Layout>

@@ -1,6 +1,14 @@
+---
+interface Props {
+  id: string
+}
+
+const { id } = Astro.props
+---
+
 <input
+  {id}
   autofocus
-  id="amount"
   type="number"
   autocomplete="off"
   placeholder="Amount"
