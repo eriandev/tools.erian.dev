@@ -1,9 +1,9 @@
 import { parseFloat } from 'shared/utils/number'
 
-export function getParsedValues(amount: string, fixed: string | undefined, percent: string | undefined) {
+export function getParsedValues(amount: string) {
   const parsedAmount = parseFloat(amount)
-  const parsedFixedCommision = parseFloat(fixed ?? 0.3)
-  const parsedPercentCommision = parseFloat(percent ?? 5.4)
+  const parsedFixedCommision = parseFloat('0.3')
+  const parsedPercentCommision = parseFloat('5.4')
 
   return {
     parsedAmount,

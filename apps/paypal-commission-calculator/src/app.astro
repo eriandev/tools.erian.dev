@@ -14,29 +14,46 @@ interface Props {
 const { title, description, slug, class: bodyClass } = Astro.props
 const html: HTMLProps = { lang: 'en' }
 const body: BodyProps = {
-  'class:list': ['font-ubuntu min-h-screen text-gray-900 dark:bg-gray-900 dark:text-white', bodyClass],
+  'class:list': ['font-primary text-white', bodyClass],
 }
 ---
 
-<BaseLayout baseUrl={BASE_URL} {html} {body} {title} {description} {slug} themeColor="#070439">
-  <style is:inline slot="head">
-    @font-face {
-      font-weight: 400;
-      font-family: 'Ubuntu';
-      font-style: normal;
-      font-display: swap;
-      src: url('/fonts/ubuntu-400.woff2') format('woff2');
-    }
-
-    @font-face {
-      font-weight: 500;
-      font-family: 'Ubuntu';
-      font-style: normal;
-      font-display: swap;
-      src: url('/fonts/ubuntu-500.woff2') format('woff2');
-    }
-  </style>
+<BaseLayout baseUrl={BASE_URL} {html} {body} {title} {description} {slug} themeColor="#005EA6">
   <Fragment slot="head">
+    <style is:inline>
+      @font-face {
+        font-display: swap;
+        font-family: 'PayPal Sans Big';
+        font-style: normal;
+        font-weight: 300;
+        src: url('/paypal-commission-calculator/fonts/paypal-sans-small-300.woff2') format('woff2');
+      }
+
+      @font-face {
+        font-display: swap;
+        font-family: 'PayPal Sans Small';
+        font-style: normal;
+        font-weight: 400;
+        src: url('/paypal-commission-calculator/fonts/paypal-sans-big-400.woff2') format('woff2');
+      }
+
+      @font-face {
+        font-display: swap;
+        font-family: 'PayPal Open';
+        font-style: normal;
+        font-weight: 400;
+        src: url('/paypal-commission-calculator/fonts/paypal-open-400.woff2') format('woff2');
+      }
+
+      @font-face {
+        font-display: swap;
+        font-family: 'PayPal Open';
+        font-style: normal;
+        font-weight: 600;
+        src: url('/paypal-commission-calculator/fonts/paypal-open-600.woff2') format('woff2');
+      }
+    </style>
+
     <script src="@/logic/declare-refs.ts"></script>
     <script src="@/logic/events.ts"></script>
   </Fragment>

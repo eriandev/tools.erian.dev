@@ -1,5 +1,16 @@
 @import 'shared/styles/tailwind.css';
 
+@theme {
+  --color-primary-dark: #005ea6;
+  --color-primary-light: #0070ba;
+  --color-tertiary: #f5f7fa;
+  --color-back-primary: #003087;
+  --color-back-secondary: #009cde;
+
+  --font-primary: 'PayPal Sans Big', 'Helvetica Neue', Arial, sans-serif;
+  --font-secondary: 'PayPal Open', 'Helvetica Neue', Arial, sans-serif;
+}
+
 @utility input-appearance-none {
   &::-webkit-outer-spin-button {
     appearance: none;
@@ -10,6 +21,11 @@
   appearance: textfield;
 }
 
-@theme {
-  --font-ubuntu: Ubuntu, sans-serif;
+@utility input-shadow {
+  box-shadow:
+    0px 0px 17px 0px rgba(0, 0, 0, 0.02),
+    0px 0px 15px 0px rgba(0, 0, 0, 0.02),
+    0px 0px 13px 0px rgba(0, 0, 0, 0.02),
+    0px -10px 10px 0px rgba(0, 0, 0, 0.03),
+    0px 0px 5px 0px rgba(0, 0, 0, 0.04);
 }

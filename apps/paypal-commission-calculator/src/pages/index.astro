@@ -1,9 +1,8 @@
 ---
 import Layout from '@/app.astro'
-import Block from '@/components/Block.astro'
-import Title from '@/components/Title.astro'
-import Input from '@/components/Input.astro'
-import Subtitle from '@/components/Subtitle.astro'
+import AmountInput from '@/components/AmountInput.astro'
+import DiagonalBack from '@/components/DiagonalBack.astro'
+import CopyValueInput from '@/components/CopyValueInput.astro'
 
 const slug = 'paypal-commission-calculator'
 const title = 'Paypal Commission Calculator'
@@ -12,71 +11,34 @@ const description =
 ---
 
 <Layout {title} {slug} {description}>
-  <header class="flex w-full justify-center px-6 py-16 text-center">
-    <Title>Paypal Commission Calculator</Title>
-  </header>
+  <div class="relative flex h-full min-h-dvh overflow-x-hidden">
+    <section
+      class="fixed top-0 right-0 left-0 z-10 mx-auto w-full max-w-2xl gap-y-2 rounded-b-[64px] bg-white p-4 text-black"
+    >
+      <span class="mx-auto block w-max font-secondary text-xl">5.4 % + $0.30</span>
+    </section>
 
-  <section>
-    <Block>
-      <Subtitle>Paypal Commission</Subtitle>
+    <DiagonalBack position="left" />
+    <DiagonalBack position="right" />
 
-      <div class="mt-6 flex items-center justify-center gap-1.5">
-        <Input id="percent-commision" value="5.4" class="w-16 text-center text-xl font-bold" readonly />
-        <span class="font-bold">%</span>
-        <span class="text-2xl font-bold">+</span>
-        <span class="font-bold">$</span>
-        <Input id="fixed-commision" value="0.3" class="w-16 text-center text-xl font-bold" readonly />
-      </div>
-    </Block>
-  </section>
+    <main
+      class="absolute top-1/2 right-0 left-0 z-10 mx-auto my-0 grid w-full max-w-2xl -translate-y-1/2 gap-y-10 lg:gap-y-24"
+    >
+      <h1 class="text-center text-3xl lg:text-5xl">Paypal Commission Calculator</h1>
 
-  <article class="mx-auto my-12 grid max-w-xs gap-3">
-    <Subtitle>Amount</Subtitle>
+      <section class="grid gap-y-4 text-center md:flex">
+        <article class="grid justify-items-center gap-y-4 lg:w-1/2">
+          <CopyValueInput id="send" label="You must to send" />
+          <CopyValueInput id="send-commission" label="Commission" />
+        </article>
 
-    <Input
-      id="amount"
-      type="number"
-      autocomplete="off"
-      class="w-full input-appearance-none py-2 text-center text-2xl font-bold"
-      onkeypress="return isOnlyNumbers(event)"
-    />
-  </article>
+        <article class="grid justify-items-center gap-y-4 lg:w-1/2">
+          <CopyValueInput id="receive" label="You will recieve" />
+          <CopyValueInput id="receive-commission" label="Commission" />
+        </article>
+      </section>
+    </main>
 
-  <section class="grid justify-center gap-6 pb-24 md:grid-cols-[repeat(2,fit-content(100%))] md:gap-12">
-    <Block>
-      <Subtitle>Send</Subtitle>
-
-      <div class="mt-6 flex flex-col gap-3">
-        <div class="grid grid-cols-[80px_auto_1fr] items-center gap-2">
-          <span class="text-right">Sends</span>
-          <Input id="send" class="w-full py-2" readonly />
-          <span>USD</span>
-        </div>
-
-        <div class="grid grid-cols-[80px_auto_1fr] items-center gap-2">
-          <span class="text-right">Comission</span>
-          <Input id="send-comission" class="w-full py-2" readonly />
-          <span>USD</span>
-        </div>
-      </div>
-    </Block>
-
-    <Block>
-      <Subtitle>Receive</Subtitle>
-
-      <div class="mt-6 flex flex-col gap-3">
-        <div class="grid grid-cols-[80px_auto_1fr] items-center gap-2">
-          <span class="text-right">Receives</span>
-          <Input id="receive" class="w-full py-2" readonly />
-          <span>USD</span>
-        </div>
-
-        <div class="grid grid-cols-[80px_auto_1fr] items-center gap-2">
-          <span class="text-right">Comission</span>
-          <Input id="receive-comission" class="w-full py-2" readonly />
-          <span>USD</span>
-        </div>
-      </div>
-    </Block>
-  </section>
+    <AmountInput />
+  </div>
 </Layout>

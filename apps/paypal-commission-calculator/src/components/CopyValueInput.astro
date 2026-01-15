@@ -1,0 +1,50 @@
+---
+interface Props {
+  id: string
+  label?: string
+}
+
+const { id, label } = Astro.props
+---
+
+<div class="grid gap-y-1">
+  {
+    label ? (
+      <label for={id} class="block font-secondary text-lg font-light lg:text-2xl">
+        {label}
+      </label>
+    ) : null
+  }
+
+  <div class="flex rounded-3xl border border-gray-500 bg-white px-4 py-3 text-xl/none text-black">
+    <input {id} placeholder=" " class="pr-3 text-center" readonly />
+
+    <svg
+      width="24"
+      height="24"
+      fill="none"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      id={`copy-btn-${id}`}
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+  </div>
+</div>
+
+<style>
+  input:placeholder-shown + svg {
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  input:not(:placeholder-shown) + svg {
+    visibility: visible;
+    pointer-events: all;
+  }
+</style>

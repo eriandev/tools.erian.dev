@@ -1,0 +1,18 @@
+---
+interface Props {
+  position: 'left' | 'right'
+}
+
+const { position } = Astro.props
+---
+
+<div
+  class:list={[
+    {
+      'bg-back-secondary after:-left-5': position === 'left',
+      'bg-back-primary after:-right-5': position === 'right',
+    },
+    'relative h-full min-h-dvh w-full -skew-x-6 transform opacity-70 after:absolute after:top-0 after:h-full after:w-24 after:skew-x-6 after:bg-inherit after:content-[""]',
+  ]}
+>
+</div>

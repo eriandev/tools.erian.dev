@@ -1,13 +1,5 @@
 import { getParsedValues, getRecieveValues, getSendValues } from './calculator-actions'
-import {
-  $send,
-  $amount,
-  $receive,
-  $sendComission,
-  $fixedCommision,
-  $percentCommision,
-  $receiveComission,
-} from './declare-refs'
+import { $send, $amount, $receive, $sendCommission, $receiveCommission } from './declare-refs'
 
 window.isOnlyNumberOrDot = isOnlyNumberOrDot
 
@@ -18,11 +10,7 @@ function isOnlyNumberOrDot({ key }: KeyboardEvent): boolean {
 
 $amount?.addEventListener('input', ({ target }) => {
   const { value } = target as HTMLInputElement
-  const { parsedAmount, parsedFixedCommision, parsedPercentCommision } = getParsedValues(
-    value,
-    $fixedCommision?.value,
-    $percentCommision?.value,
-  )
+  const { parsedAmount, parsedFixedCommision, parsedPercentCommision } = getParsedValues(value)
 
   if (Number.isNaN(parsedAmount)) {
     updateValues('', '', '', '')
@@ -46,6 +34,6 @@ $amount?.addEventListener('input', ({ target }) => {
 function updateValues(sendValue: string, recieveValue: string, sendCommision: string, recieveCommision: string) {
   if ($send !== null) $send.value = sendValue
   if ($receive !== null) $receive.value = recieveValue
-  if ($sendComission !== null) $sendComission.value = sendCommision
-  if ($receiveComission !== null) $receiveComission.value = recieveCommision
+  if ($sendCommission !== null) $sendCommission.value = sendCommision
+  if ($receiveCommission !== null) $receiveCommission.value = recieveCommision
 }
