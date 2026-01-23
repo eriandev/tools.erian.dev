@@ -18,6 +18,7 @@
     "pnpm": ">=8"
   },
   "devDependencies": {
-    "shared": "workspace:*"
+    "shared": "workspace:*",
+    "svelte-dnd-action": "0.9.69"
   }
 }
