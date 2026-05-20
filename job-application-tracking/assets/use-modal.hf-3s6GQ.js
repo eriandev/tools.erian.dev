@@ -1,0 +1,1 @@
+import{s as o,m as s,a as l}from"./consts.DROHeK9a.js";function r(){return{modalInfo:s,showModal:o,openModal:({action:a,status:e,jobApplication:t})=>{s.set({status:e,action:a,jobApplication:t}),o.set(!0)},closeModal:()=>{o.set(!1),s.set(l)}}}export{r as u};
