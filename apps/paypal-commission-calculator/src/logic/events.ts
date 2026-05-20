@@ -5,7 +5,7 @@ import { $send, $amount, $receive, $sendCommission, $receiveCommission } from '.
 window.isOnlyNumberOrDot = isOnlyNumberOrDot
 
 function isOnlyNumberOrDot({ key }: KeyboardEvent): boolean {
-  const pattern = /^\d+(\.\d+)?$/
+  const pattern = /^\d+(\.\d+)?$/v
   return pattern.test(key)
 }
 

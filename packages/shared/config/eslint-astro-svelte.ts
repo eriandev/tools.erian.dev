@@ -3,13 +3,15 @@ import ts from 'typescript-eslint'
 import love from 'eslint-config-love'
 import astro from 'eslint-plugin-astro'
 import svelte from 'eslint-plugin-svelte'
-import { includeIgnoreFile } from '@eslint/compat'
+import { includeIgnoreFile } from '@eslint/config-helpers'
 import svelteConfig from '../svelte.config.js'
 
 const gitignorePath = fileURLToPath(new URL('../../../.gitignore', import.meta.url))
 
 export default [
-  includeIgnoreFile(gitignorePath),
+  includeIgnoreFile(gitignorePath, {
+    gitignoreResolution: true,
+  }),
   ...svelte.configs.prettier,
   ...astro.configs.recommended,
   ...svelte.configs.recommended,

@@ -1,12 +1,14 @@
 import { fileURLToPath } from 'node:url'
 import love from 'eslint-config-love'
 import astro from 'eslint-plugin-astro'
-import { includeIgnoreFile } from '@eslint/compat'
+import { includeIgnoreFile } from '@eslint/config-helpers'
 
 const gitignorePath = fileURLToPath(new URL('../../../.gitignore', import.meta.url))
 
 export default [
-  includeIgnoreFile(gitignorePath),
+  includeIgnoreFile(gitignorePath, {
+    gitignoreResolution: true,
+  }),
   ...astro.configs.recommended,
   {
     ...love,

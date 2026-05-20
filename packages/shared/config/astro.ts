@@ -18,7 +18,7 @@ const getIconIntegrations = (isNeeded: boolean) => (isNeeded ? [icon(), iconTypi
 export function getAstroConfig({ app, site, hostname, useSvelte = false, useAstroIcon = false }: GetAstroConfig) {
   const assets = 'assets'
   const hasAppName = typeof app === 'string'
-  const base = hasAppName ? '/' + app : '/'
+  const base = hasAppName ? `/${app}` : '/'
   const hasHostname = typeof hostname === 'string'
 
   return {
