@@ -14,11 +14,11 @@
     "clean": "rm -rf .astro && rm -rf dist && rm -rf node_modules"
   },
   "engines": {
-    "node": ">=20",
+    "node": ">=22",
     "pnpm": ">=11"
   },
   "devDependencies": {
     "shared": "workspace:*",
-    "svelte-dnd-action": "0.9.69"
+    "svelte-dnd-action": "0.9.70"
   }
 }

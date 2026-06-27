@@ -12,15 +12,15 @@
   },
   "devDependencies": {
     "@eslint/config-helpers": "0.6.0",
-    "@tailwindcss/vite": "4.3.0",
-    "@typescript-eslint/eslint-plugin": "8.59.4",
-    "@typescript-eslint/parser": "8.59.4",
+    "@tailwindcss/vite": "4.3.1",
+    "@typescript-eslint/eslint-plugin": "8.62.0",
+    "@typescript-eslint/parser": "8.62.0",
     "@usesvelte/inline-svg": "0.5.0",
     "astro-icon": "1.1.5",
     "eslint-config-love": "154.0.0",
-    "eslint-plugin-astro": "1.7.0",
-    "eslint-plugin-svelte": "3.17.1",
-    "sharp": "0.34.5",
-    "typescript-eslint": "8.59.4"
+    "eslint-plugin-astro": "2.1.1",
+    "eslint-plugin-svelte": "3.19.0",
+    "sharp": "0.35.2",
+    "typescript-eslint": "8.62.0"
   }
 }
