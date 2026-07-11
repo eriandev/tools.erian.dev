@@ -1,0 +1,1 @@
+import"./declare-refs.B2VStuAG.js";

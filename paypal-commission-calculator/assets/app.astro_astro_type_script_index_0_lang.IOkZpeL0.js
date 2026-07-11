@@ -1,1 +1,0 @@
-const s=e=>document.querySelector(e),o="send",n="amount",c="receive",i="send-commission",t="receive-commission",m=s(`#${o}`),$=s(`#${n}`),a=s(`#${c}`),r=s(`#${i}`),d=s(`#${t}`);export{$,a,d as b,m as c,r as d};

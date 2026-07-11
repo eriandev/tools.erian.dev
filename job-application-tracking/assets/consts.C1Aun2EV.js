@@ -1,0 +1,1 @@
+import{at as e,st as t}from"./runtime.De_Dm3Ss.js";var n={wishlist:[],applied:[],interview:[]},r={action:`create`,status:`wishlist`},i=t(!0),a=t(!1),o=t(n),s=t(r),c=e(o,({wishlist:e,applied:t,interview:n})=>({wishlist:e.length,applied:t.length,interview:n.length}));export{i as a,o as i,r as n,s as o,c as r,a as s,n as t};

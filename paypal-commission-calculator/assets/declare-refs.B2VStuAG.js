@@ -1,0 +1,1 @@
+var e=e=>document.querySelector(e),t=`send`,n=`amount`,r=`receive`,i=`send-commission`,a=`receive-commission`,o=e(`#${t}`),s=e(`#${n}`),c=e(`#${r}`),l=e(`#${i}`),u=e(`#${a}`);export{l as a,o as i,c as n,u as r,s as t};
