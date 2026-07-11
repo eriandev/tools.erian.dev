@@ -2,7 +2,7 @@
   import { flip } from 'svelte/animate'
   import { dndzone } from 'svelte-dnd-action'
 
-  import Card from './Card.svelte'
+  import Card from './card.svelte'
   import { useBoard } from '@/stores/use-board'
   import { useModal } from '@/stores/use-modal'
   import { flipDurationMs } from '@/stores/consts'

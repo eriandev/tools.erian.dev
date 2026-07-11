@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Input from './Input.svelte'
-  import Button from './Button.svelte'
-  import Checkbox from './Checkbox.svelte'
-  import BaseModal from './BaseModal.svelte'
+  import Input from './input.svelte'
+  import Button from './button.svelte'
+  import Checkbox from './checkbox.svelte'
+  import BaseModal from './base-modal.svelte'
   import { useBoard } from '@/stores/use-board'
   import { useModal } from '@/stores/use-modal'
   import { isValidURL } from 'shared/utils/validations'

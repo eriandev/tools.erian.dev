@@ -2,7 +2,7 @@
   import { fade, fly } from 'svelte/transition'
 
   import { useModal } from '@/stores/use-modal'
-  import Icon from 'shared/components/Icon.svelte'
+  import Icon from 'shared/components/icon.svelte'
   import type { BaseModalProps } from './types'
 
   const { closeModal } = useModal()

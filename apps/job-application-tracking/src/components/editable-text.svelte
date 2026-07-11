@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Icon from 'shared/components/Icon.svelte'
-  import Link from 'shared/components/Link.svelte'
+  import Icon from 'shared/components/icon.svelte'
+  import Link from 'shared/components/link.svelte'
   import type { EditableTextProps } from './types'
 
   let {

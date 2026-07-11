@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Button from './Button.svelte'
-  import Icon from 'shared/components/Icon.svelte'
+  import Button from './button.svelte'
+  import Icon from 'shared/components/icon.svelte'
   import type { DeleteButtonProps } from './types'
 
   let confirming = $state(false)

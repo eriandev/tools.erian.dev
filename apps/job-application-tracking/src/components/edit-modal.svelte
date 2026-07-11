@@ -1,12 +1,12 @@
 <script lang="ts">
-  import Button from './Button.svelte'
-  import Checkbox from './Checkbox.svelte'
-  import BaseModal from './BaseModal.svelte'
+  import Button from './button.svelte'
+  import Checkbox from './checkbox.svelte'
+  import BaseModal from './base-modal.svelte'
   import { useBoard } from '@/stores/use-board'
   import { useModal } from '@/stores/use-modal'
-  import EditableText from './EditableText.svelte'
-  import DeleteButton from './DeleteButton.svelte'
-  import Icon from 'shared/components/Icon.svelte'
+  import Icon from 'shared/components/icon.svelte'
+  import EditableText from './editable-text.svelte'
+  import DeleteButton from './delete-button.svelte'
   import { isValidURL } from 'shared/utils/validations'
 
   const { deleteJobPost, updateCardInfo } = useBoard()

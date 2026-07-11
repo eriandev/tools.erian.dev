@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Icon from 'shared/components/Icon.svelte'
+  import Icon from 'shared/components/icon.svelte'
   import type { CheckboxProps } from './types'
 
   const peerClass =

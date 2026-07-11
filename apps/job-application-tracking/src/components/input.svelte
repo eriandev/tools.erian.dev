@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Icon from 'shared/components/Icon.svelte'
+  import Icon from 'shared/components/icon.svelte'
   import type { InputProps } from './types'
 
   let { id, icon, label, errorMessage, type = 'text', value = $bindable() }: InputProps = $props()
