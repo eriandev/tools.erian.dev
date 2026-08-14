@@ -19,6 +19,6 @@
   },
   "devDependencies": {
     "shared": "workspace:*",
-    "svelte-dnd-action": "0.9.70"
+    "svelte-dnd-action": "0.9.78"
   }
 }
