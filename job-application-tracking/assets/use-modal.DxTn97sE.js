@@ -1,0 +1,1 @@
+import{n as e,o as t,s as n}from"./consts.Da89jz5w.js";function r(){return{modalInfo:t,showModal:n,openModal:({action:e,status:r,jobApplication:i})=>{t.set({status:r,action:e,jobApplication:i}),n.set(!0)},closeModal:()=>{n.set(!1),t.set(e)}}}export{r as t};

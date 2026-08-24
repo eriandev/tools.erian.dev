@@ -1,0 +1,1 @@
+import{t as e}from"./use-board.B8Z6dWym.js";e().initBoardInfo();

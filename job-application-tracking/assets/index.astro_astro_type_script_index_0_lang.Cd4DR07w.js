@@ -1,1 +1,0 @@
-import{t as e}from"./use-board.DetzrZF_.js";e().initBoardInfo();
