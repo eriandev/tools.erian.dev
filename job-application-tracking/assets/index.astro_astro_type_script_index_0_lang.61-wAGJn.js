@@ -1,0 +1,1 @@
+import{t as e}from"./use-board.mT3ixsQT.js";e().initBoardInfo();
